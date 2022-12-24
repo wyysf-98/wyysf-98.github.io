@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<!-- Last Published: Fri Mar 27 2020 21:28:31 GMT+0000 (Coordinated Universal Time) -->
+<html data-wf-domain="www.matthewtancik.com" data-wf-page="5e6fb768456f961381500a5f" data-wf-site="51e0d73d83d06baa7a00000f">
+
+<head>
+    <meta charset="utf-8" />
+    <title>MoCo-Flow</title>
+    <meta content="Neural Motion Consensus Flow for Dynamic Humans in Stationary Monocular Cameras." name="description" />
+    <meta content="MoCo-Flow" property="og:title" />
+    <meta content="Neural Motion Consensus Flow for Dynamic Humans in Stationary Monocular Cameras" property="og:description" />
+    <meta content="summary" name="twitter:card" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <link href="./template.css" rel="stylesheet" type="text/css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css" integrity="sha384-Um5gpz1odJg5Z4HAmzPtgZKdTBHZdw8S29IecapCSB31ligYPhHQZMIlWLYQGVoc" crossorigin="anonymous">
+    <!-- The loading of KaTeX is deferred to speed up page rendering -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.js" integrity="sha384-YNHdsYkH6gMx9y3mRkmcJ2mFUjTd0qNQQvY9VYZgQd7DcN7env35GzlmFaZ23JGp" crossorigin="anonymous"></script>
+    <!-- To automatically render math in text elements, include the auto-render extension: -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"
+        onload="renderMathInElement(document.body);"></script>
+    <script type="text/javascript">
+        WebFont.load({
+            google: {
+                families: ["Lato:100,100italic,300,300italic,400,400italic,700,700italic,900,900italic", "Montserrat:100,100italic,200,200italic,300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic", "Ubuntu:300,300italic,400,400italic,500,500italic,700,700italic", "Changa One:400,400italic", "Open Sans:300,300italic,400,400italic,600,600italic,700,700italic,800,800italic", "Varela Round:400", "Bungee Shade:regular", "Roboto:300,regular,500"]
+            }
+        });
+    </script>
+    <!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" type="text/javascript"></script><![endif]-->
+    <script type="text/javascript">
+        ! function(o, c) {
+            var n = c.documentElement,
+                t = " w-mod-";
+            n.className += t + "js", ("ontouchstart" in o || o.DocumentTouch && c instanceof DocumentTouch) && (n.className += t + "touch")
+        }(window, document);
+    </script>
+    <link href="images/logo.png" rel="shortcut icon" type="image/x-icon" />
+    <link href="images/logo.png" rel="apple-touch-icon" />
+    <style>
+        .wf-loading * {
+            opacity: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="section hero nerf-_v2">
+        <div class="container-2 nerf_header_v2 w-container">
+            <h1 class="nerf_title_v2">MoCo-Flow: Neural Motion Consensus Flow for
+            </h1>
+            <h1 class="nerf_title_v2">Dynamic Humans in Stationary Monocular Cameras
+            </h1>
+            <h2 class="example_text center"><strong>Accepted to Eurographics 2022</strong></h2>
+            <div class="nerf_authors_list_single w-col"></div>
+            <div class="nerf_authors_list_single w-col"></div>
+
+            <!-- <h1 class="nerf_subheader_v2">(arxiv)</h1> -->
+            <div class="nerf_authors_list_single w-row">
+                <div class="w-col w-col-6 w-col-small-1 w-col-tiny-1"><a href="https://xuelin-chen.github.io/" target="_blank" class="nerf_authors_v2">Xuelin Chen<span class="text-span_nerf"></span><a></div>
+                <div class="w-col w-col-6 w-col-small-1 w-col-tiny-1"><a href="https://wyysf-98.github.io/" target="_blank" class="nerf_authors_v2">Weiyu Li<span class="text-span_nerf"></span></a></div>
+            </div>
+            <div class="nerf_authors_list_single nerf_authors_affiliation w-row">
+                <div class="w-col w-col-6"><h1 class="nerf_affiliation_v2">Tencent AI Lab</h1></div>
+                <div class="w-col w-col-6"><h1 class="nerf_affiliation_v2">Shandong University</h1></div>
+            </div>
+            <div class="nerf_authors_list_single nerf_authors_affiliation w-row">
+                <div class="w-col w-col-6"><h1 class="nerf_affiliation_v2"></h1></div>
+                <div class="w-col w-col-6"><h1 class="nerf_affiliation_v2">Tencent AI Lab</h1></div>
+            </div>
+            <h1 class="nerf_subheader_v2"></h1>
+            <div class="nerf_authors_list_single w-row">
+                <div class="w-col w-col-4 w-col-small-1 w-col-tiny-1"><a href="https://danielcohenor.com/" target="_blank" class="nerf_authors_v2">Daniel Cohen-Or<span class="text-span_nerf"></span></a></div>
+                <div class="w-col w-col-4 w-col-small-1 w-col-tiny-1"><a href="http://www0.cs.ucl.ac.uk/staff/n.mitra/" target="_blank" class="nerf_authors_v2">Niloy J. Mitra<span class="text-span_nerf"></span></a></div>
+                <div class="w-col w-col-4 w-col-small-1 w-col-tiny-1"><a href="https://cfcs.pku.edu.cn/baoquan" target="_blank" class="nerf_authors_v2">Baoquan Chen<span class="text-span_nerf"></span></a></div>
+            </div>
+            <div class="nerf_authors_list_single nerf_authors_affiliation w-row">
+                <div class="w-col w-col-4"><h1 class="nerf_affiliation_v2">Tel Aviv University</h1></div>
+                <div class="w-col w-col-4"><h1 class="nerf_affiliation_v2">University College London</h1></div>
+                <div class="w-col w-col-4"><h1 class="nerf_affiliation_v2">CFCS, Peking University</h1></div>
+            </div>
+            <div class="nerf_authors_list_single nerf_authors_affiliation w-row">
+                <div class="w-col w-col-4"><h1 class="nerf_affiliation_v2"></h1></div>
+                <div class="w-col w-col-4"><h1 class="nerf_affiliation_v2">Adobe Research</h1></div>
+                <div class="w-col w-col-4"><h1 class="nerf_affiliation_v2"></h1></div>
+            </div>
+
+            <span class="teaser"><img src="assets/images/teaser.gif"></span>
+
+            <div class="link_column_nerf_v2 w-row">
+                <div class="w-col w-col-4 w-col-small-4 w-col-tiny-4">
+                    <a href="https://arxiv.org/pdf/2106.04477.pdf" target="_blank" class="link-block w-inline-block">
+                        <img src="https://uploads-ssl.webflow.com/51e0d73d83d06baa7a00000f/5cab99df4998decfbf9e218e_paper-01.png" alt="paper" class="paper_img image-8 github_icon_nerf_v2" /></a>
+                </div>
+                <div class="w-col w-col-4 w-col-small-4 w-col-tiny-4">
+                    <a href="https://github.com/wyysf-98/MoCo_Flow" target="_blank" class="link-block w-inline-block">
+                        <img src="https://uploads-ssl.webflow.com/51e0d73d83d06baa7a00000f/5cae3b53b42ebb3dd4175a82_68747470733a2f2f7777772e69636f6e66696e6465722e636f6d2f646174612f69636f6e732f6f637469636f6e732f313032342f6d61726b2d6769746875622d3235362e706e67.png" alt="paper"
+                            class="paper_img image-8 github_icon_nerf_v2" /></a>
+                </div>
+                <div class="column-2 w-col w-col-4 w-col-small-4 w-col-tiny-4">
+                    <a href="" target="_blank" class="link-block w-inline-block">
+                        <img src="https://uploads-ssl.webflow.com/51e0d73d83d06baa7a00000f/5e7136849ee3b0a0c6a95151_database.svg" alt="paper" class="paper_img image-8_nerf nerf_db_icon" /></a>
+                </div>
+            </div>
+            <div class="paper_code_nerf w-row">
+                <div class="w-col w-col-4 w-col-small-4 w-col-tiny-4">
+                    <div class="text-block-2"><strong class="bold-text-nerf_v2">Paper(arxiv)</strong></div>
+                </div>
+                <div class="w-col w-col-4 w-col-small-4 w-col-tiny-4">
+                    <div class="text-block-2">
+                        <strong class="bold-text-nerf_v2">Code</strong>
+                    </div>
+                </div>
+                <div class="w-col w-col-4 w-col-small-4 w-col-tiny-4">
+                    <div class="text-block-2"><strong class="bold-text-nerf_v2">Data(Coming soon)</strong></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div data-anchor="slide1" class="section nerf_section">
+        <!-- <div class="w-container"><h2 class="grey-heading_nerf">Overview video</h2>
+        <div class="w-container">
+            <video class="results" loop="" playsinline="" controls="" width="100%" poster="./assets/images/poster.png">
+            <source src="./assets/moco_flow.mp4" type="video/mp4">
+            </video>
+        </div> -->
+        <div class="w-container"><h2 class="grey-heading_nerf">Overview Video</h2>
+            <div style="padding-top:56.17021276595745%" id="w-node-e5e45b1d55ac-81500a5f" class="w-embed-youtubevideo stega_movie youtube">
+              <iframe src="https://www.youtube.com/embed/cEsGnqwdtvM?rel=1&amp;controls=1&amp;autoplay=0&amp;mute=0&amp;start=0" frameBorder="0" style="position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:auto" allow="autoplay; encrypted-media" allowfullscreen=""></iframe>
+            </div>
+        </div>
+      </div>
+
+    <div data-anchor="slide1" class="section nerf_section">
+
+        <div class="grey_container w-container">
+            <h2 class="grey-heading_nerf">Abstract</h2>
+            <p class="paragraph-3 nerf_text">Synthesizing novel views of dynamic humans from stationary monocular cameras
+                is a popular scenario. This is particularly attractive as it does not require static
+                scenes, controlled environments, or specialized hardware. In contrast to techniques
+                that exploit multi-view observations to constrain the modeling, given a single fixed
+                viewpoint only, the problem of modeling the dynamic scene is significantly more
+                under-constrained and ill-posed. In this paper, we introduce Neural Motion Consensus Flow (MoCo-Flow), a representation that models the dynamic scene using a
+                4D continuous time-variant function. The proposed representation is learned by an
+                optimization which models a dynamic scene that minimizes the error of rendering
+                all observation images. At the heart of our work lies a novel optimization formulation, which is constrained by a motion consensus regularization on the motion
+                flow. We extensively evaluate MoCo-Flow on several datasets that contain human
+                motions of varying complexity, and compare, both qualitatively and quantitatively,
+                to several baseline methods and variants of our methods.       
+            </p>
+            <img class="camera_setting_img" src="assets/images/camera_setting.png">
+            <p class="paragraph-3 caption_text"> <b>Figure 1:</b> (Left) Multi-view cameras setup for full observation of the dynamic scene; (middle) single
+                free-viewpoint camera setup that captures the dynamics from varying viewpoints; (right/ours) stationary monocular camera which observes the dynamic scene from one single <i>fixed</i> viewpoint only.</p>
+        </div>
+    </div>
+
+
+    <div data-anchor="slide1" class="section nerf_section">
+        <div class="white_section_nerf w-container">
+            <h2 class="grey-heading_nerf">Method overview</h2>
+            
+            <img class="network_img" src="assets/images/network.png">
+            <p class="paragraph-3 caption_center_text"> <b>Figure 2:</b> MoCo-Flow architecture.</p>
+
+            <p class="paragraph-3 nerf_text">The dynamic scene is represented by a shared canonical NeRF and motion
+                flows. We trace rays in the observation space \(t_i\) and transform the samples \(x\) along the ray to 3D
+                samples \(x'\) in the canonical space via the neural backward motion flow \(M^bw : (x,t_i) → x'\). We
+                evaluate the color and density of \(x\) at \(t_i\) through the canonical NeRF with a condition appearance
+                code \(l_i: F(x', l_i) → (c, σ) \). The networks are initialized with rough human mesh estimation and
+                then optimized to minimize the error \(\mathcal{L_{photo}}\) of rendering captured images. An auxiliary neural
+                forward motion network \(\mathcal{M^{fw}}\) is introduced to constrain the optimization with motion consensus
+                regularization  \(\mathcal{L_{moco}}\) (see the loop formed by the blue arrows).           
+            </p>
+        </div>
+    </div>
+
+    <div class="white_section_nerf w-container">
+        <h2 class="grey-heading_nerf">Results</h2>
+        <p class="paragraph-3 nerf_text">
+            In the following, we show the novel view synthesis results of MoCo-Flow on People-Snapshot, AIST, and ZJU-MoCap datasets. Note that the input, which is shown in the middle of each result, is only a video clip captured using a <i><b>stationary monocular</b></i> camera. 
+        </p>
+        <div class="example_grid">
+            <h2 class="example_text">People-Snapshot</h2>
+            <h2 class="example_text"></h2>
+            <img class="grid_item" src="assets/images/all_results/people_snapshot_0.gif">
+            <img class="grid_item" src="assets/images/all_results/people_snapshot_1.gif">
+            <img class="grid_item bottom_border" src="assets/images/all_results/people_snapshot_2.gif">
+            <img class="grid_item bottom_border" src="assets/images/all_results/people_snapshot_3.gif">
+
+            <h2 class="example_text">AIST</h2>
+            <h2 class="example_text">ZJU-MoCap</h2>
+            <img class="grid_item" src="assets/images/all_results/aist_0.gif">
+            <img class="grid_item left_border" src="assets/images/all_results/zju_mocap_0.gif">
+            <img class="grid_item" src="assets/images/all_results/aist_1.gif">
+            <img class="grid_item left_border" src="assets/images/all_results/zju_mocap_1.gif">
+            <img class="grid_item"  src="assets/images/all_results/aist_2.gif">
+            <img class="grid_item left_border" src="assets/images/all_results/zju_mocap_2.gif">
+
+        </div>
+    </div>
+
+    <div class="grey_container w-container">
+        <h2 class="grey-heading_nerf">Comparison</h2>
+        <div class="comparsion_grid">
+            <h2 class="example_text center">GT</h2>
+            <h2 class="example_text center">D-NeRF*</h2>
+            <h2 class="example_text center">NSFF</h2>
+            <h2 class="example_text center">NeuralBody</h2>
+            <h2 class="example_text center">MoCo-Flow</h2>
+        </div>
+        <img class="comparsion_img" src="assets/images/comparsion_results/AIST_gJB_sFM_c09_d09_mJB0_ch15_c02_rgb_pred_concat.gif">
+        <img class="comparsion_img" src="assets/images/comparsion_results/AIST_gJB_sFM_c09_d09_mJB0_ch15_c04_rgb_pred_concat.gif">
+        <img class="comparsion_img" src="assets/images/comparsion_results/AIST_gPO_sBM_c09_d10_mPO0_ch08_c03_rgb_pred_concat.gif">
+        <img class="comparsion_img" src="assets/images/comparsion_results/AIST_gPO_sBM_c09_d10_mPO0_ch08_c07_rgb_pred_concat.gif">
+        <img class="comparsion_img" src="assets/images/comparsion_results/AIST_gPO_sBM_c09_d12_mPO2_ch06_c02_rgb_pred_concat.gif">
+        <img class="comparsion_img" src="assets/images/comparsion_results/AIST_gPO_sBM_c09_d12_mPO2_ch06_c08_rgb_pred_concat.gif">
+        <h2 class="comparsion_note">* Note: <b>D-NeRF</b> failed on the task and output blank imagery; <b>NSFF</b> only supports reconstruction in NDC space, it is non-trivial to adapt it to work on non-NDC space.</h2> 
+    </div>
+
+    <div class="white_section_nerf w-container">
+        <h2 class="grey-heading_nerf">References</h2>
+        <p class="paragraph-3 nerf_text">[AIST] Shuhei Tsuchida, Satoru Fukayama, Masahiro Hamasaki, and Masataka Goto. AIST Dance Video Database: Multi-genre, Multi-dancer, and Multi-camera Database for Dance Information Processing. In Proceedings ofthe 20th International Society for Music Information Retrieval Conference, ISMIR 2019, pages 501–510, Delft, Netherlands, November 2019.</p>
+        <p class="paragraph-3 nerf_text">[NeuralBody] Sida Peng, Yuanqing Zhang, Yinghao Xu, Qianqian Wang, Qing Shuai, Hujun Bao, and Xiaowei Zhou. Neural Body: Implicit Neural Representations with Structured Latent Codes for Novel View Synthesis of Dynamic Humans. In Conference on Computer Vision and Pattern Recognition (CVPR), 2021.</p>
+        <p class="paragraph-3 nerf_text">[People-Snapshot] Thiemo Alldieck, Marcus Magnor, Weipeng Xu, Christian Theobalt, and Gerard Pons-Moll. Video Based Reconstruction of 3d People Models. In Conference on Computer Vision and Pattern Recognition (CVPR), pages 8387–8397, Jun 2018.</p>
+        <p class="paragraph-3 nerf_text">[D-NeRF] Albert Pumarola, Enric Corona, Gerard Pons-Moll, and Francesc Moreno-Noguer. D-NeRF: Neural Radiance Fields for Dynamic Scenes. In Conference on Computer Vision and Pattern Recognition (CVPR), 2021.</p>
+        <p class="paragraph-3 nerf_text">[NSFF] Zhengqi Li, Simon Niklaus, Noah Snavely, and Oliver Wang. Neural Scene Flow Fields for Space-time View Synthesis of Dynamic Scenes. In Conference on Computer Vision and Pattern Recognition (CVPR), 2021.</p>
+    </div>
+
+    <div class="grey_container w-container">
+        <h2 class="grey-heading_nerf">BibTeX</h2>
+        <div class="bibtex">
+            <pre><code>@article{mocoflow,
+author = {Xuelin Chen and Weiyu Li and Daniel Cohen-Or and Niloy J. Mitra and Baoquan Chen},
+title = {MoCo-Flow: Neural Motion Consensus Flow for Dynamic Humans in Stationary Monocular Cameras},
+year = {2022},
+journal = {Computer Graphics Forum},
+volume = {41},
+number = {2},
+organization = {Wiley Online Library}
+}</code></pre>
+        </div>
+    </div>
+
+    <script>
+        $(window).load(function() {
+            $('.preload').attr('src', function(i,a){
+                $(this).attr('src','').removeClass('preload').attr('src',a);
+            });
+        });
+    </script>
+    <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.4.1.min.220afd743d.js?site=51e0d73d83d06baa7a00000f" type="text/javascript" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://uploads-ssl.webflow.com/51e0d73d83d06baa7a00000f/js/webflow.3057c11af.js" type="text/javascript"></script>
+    <!--[if lte IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif]-->
+</body>
+
+</html>
