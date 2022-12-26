@@ -2700,8 +2700,6 @@ table.alt tfoot {
     -webkit-box-sizing: content-box;
     -ms-box-sizing: content-box;
     box-sizing: content-box;
-    border-radius: 100%;
-    border: solid 3px rgb(255, 255, 255);
     content: '\f00d';
     display: block;
     font-size: 1em;
