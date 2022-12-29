@@ -2461,9 +2461,11 @@ table.alt tfoot {
 /* Main */
 #main {
     margin-left: 25%;
-    max-width: 88em;
+    max-width: 65em;
     padding: 6em 6em 6em 6em;
     width: calc(100% - 25%);
+    text-align: justify;
+    text-justify: inter-ideograph;
 }
 
 #main>section {
