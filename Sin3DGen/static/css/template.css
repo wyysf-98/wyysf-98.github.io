@@ -203,6 +203,7 @@ label {
   padding: 0;
 }
 .bibtex {
+margin-top: -15px;
   padding-right: 25px;
   padding-left: 25px;
   font-family: Roboto, sans-serif;
@@ -977,7 +978,7 @@ img {
 }
 @media screen and (max-width: 991px) {
   .bibtex {
-    font-size: 14px;
+    font-size: 13px;
   }
   .btn {
     font-size: 0.9rem;
@@ -1013,7 +1014,7 @@ img {
 }
 @media screen and (max-width: 767px) {
   .bibtex {
-    font-size: 14px;
+    font-size: 12px;
   }
   .btn {
     font-size: 0.8rem;
@@ -1169,8 +1170,8 @@ img {
     line-height: 50px;
   }
   .grey-heading_nerf {
-    margin-top: 20px;
-    margin-bottom: 24px;
+    margin-top: 15px;
+    margin-bottom: 20px;
     font-size: 4vw;
   }
   .paper_code_nerf,
@@ -1318,8 +1319,8 @@ img {
     font-size: 4.5vw;
   }
   .grey-heading_nerf {
-    margin-top: 15px;
-    margin-bottom: 20px;
+    margin-top: 10px;
+    margin-bottom: 15px;
     text-shadow: none;
   }
   .text-span_nerf {
