@@ -46,7 +46,6 @@
         <div class="container-2 nerf_header_v2 w-container">
             <h1 class="nerf_title_v2">Example-based Motion Synthesis via <br> Generative Motion Matching</h1>
             <div class="nerf_subheader_v2">ACM Transactions on Graphics (SIGGRAPH 2023)</div>
-            <div class="nerf_subheader_v2"><b style="color: rgb(230, 86, 29);">*still under construction</b></div>
             <div class="nerf_subheader_v2">
                 <div>
                     <a href="https://wyysf-98.github.io/" target="_blank" class="nerf_authors_v2">Weiyu Li<span
@@ -86,12 +85,13 @@
                     <embed src="https://weiyuli.xyz/GenMM_demo/" width="100%" height="500">
                 </h2>
                 <p align="left">
-                    1. FBX parser in Three.js is not robust and lacks foot contact fix in the demo, may produce artifacts. Wait for Blender plugin for better performance.
+                    1. FBX parser in Three.js is not robust and lacks foot contact fix in the demo, may produce artifacts. Wait for Blender addon for better performance.
                     <br>
                     2. The demo is powered by 🤗<a href="https://huggingface.co/spaces/wyysf/GenMM" class="nerf_authors_v2">Hugging Face</a> using CPU, 
                     which requires time for data transmission. You can fork and change 'Controls/apu_url'.
                     <br>
-                    3. Click 'Next' to try more examples from <a href="https://www.mixamo.com/#/" class="nerf_authors_v2">Mixamo</a><a href="https://www.adobe.com/legal/terms.html" class="nerf_authors_v2">©</a>. Have fun :)
+                    3. Click 'Next' to try more examples from <a href="https://www.mixamo.com/#/" class="nerf_authors_v2">Mixamo</a><a href="https://www.adobe.com/legal/terms.html" class="nerf_authors_v2">©</a>. 
+                    See <a href="https://github.com/wyysf-98/GenMM" class="nerf_authors_v2">more instructions</a> and have fun :)
                 </p>
             </div>
         </div>
@@ -103,21 +103,207 @@
         <div class="w-container grey_container">
             <h2 class="grey-heading_nerf">Abstract</h2>
             <p class="paragraph-3 nerf_text nerf_results_text">
-                We present <b style="color: rgb(228, 202, 115);">GenMM</b>, a generative model that "mines" as many diverse motions as possible from a single or 
-                few example sequences. In stark contrast to existing data-driven methods, which typically require long 
-                offline training time, are prone to visual artifacts, and tend to fail on large and complex skeletons, 
-                GenMM inherits the training-free nature and the superior quality of the well-known Motion Matching method. 
-                GenMM can synthesize a high-quality motion within a fraction of a second, even with highly complex and large 
-                skeletal structures. At the heart of our generative framework lies the generative motion matching module, 
+                We present <b style="color: rgb(124, 196, 245);">GenMM</b>, a generative model that "mines" as many diverse 
+                motions as possible from a single or few example sequences. In stark contrast to existing data-driven methods, 
+                which typically require long offline training time, are prone to visual artifacts, and tend to fail on large 
+                and complex skeletons, GenMM inherits the <b style="color: rgb(124, 196, 245);">training-free nature</b> and 
+                the <b style="color: rgb(124, 196, 245);">superior quality</b> of the well-known Motion Matching method. GenMM 
+                can synthesize a high-quality motion within a fraction of a second, even with <b style="color: rgb(124, 196, 245);">
+                highly complex and large</b> skeletal structures. 
+                <br>
+                <img  src="assets/images/overview.png">
+                At the heart of our generative framework lies the generative motion matching module, 
                 which utilizes the bidirectional visual similarity as a generative cost function to motion matching,
                 and operates in a multi-stage framework to progressively refine a random guess using exemplar motion matches. 
-                In addition to diverse motion generation, we show the versatility of our generative framework by extending it 
-                to a number of scenarios that are not possible with motion matching alone, including motion completion, key 
-                frame-guided generation, infinite looping, and motion reassembly.
             </p>
         </div>
     </div>
 
+
+    <div class="white_section_nerf w-container">
+        <h2 class="grey-heading_nerf">Novel Motion Synthesis</h2>
+        <p class="paragraph-3 nerf_text sub_heading" style="color: rgb(124, 196, 245); margin-bottom: -10px;">
+            <strong>* Blue border</strong> indicates the input motion sequence.
+        </p>
+        <p class="paragraph-3 nerf_text nerf_results_text">
+            From a single example, our framework generates, within a second, diverse motion sequences for even highly complex 
+            and large skeletons, including the animation of the clothes and eyes.
+        </p>
+        <div class="grid-container-2-text" style="margin-bottom: -25px;">
+            <div style="text-align: center"></div>
+            <div style="text-align: center">Synthesized motion</div>
+        </div>
+        <div class="grid-container">
+            <div class="grid-item item1"><img src="assets/images/skeleton.png"></div>
+            <div class="grid-item item2"><video class="video" style="border: 2px solid rgb(124, 196, 245);" loop playsinline autoPlay muted src="assets/videos/random_generation/gt_bvh.webm"></video></div>
+            <div class="grid-item item3"><video class="video" loop playsinline autoPlay muted src="assets/videos/random_generation/s73817.webm"></video></div>
+            <div class="grid-item item4"><video class="video" loop playsinline autoPlay muted src="assets/videos/random_generation/s112706.webm"></video></div>
+            <div class="grid-item item5"><video class="video" style="border: 2px solid rgb(124, 196, 245);" loop playsinline autoPlay muted src="assets/videos/random_generation/gt.webm"></video></div>
+            <div class="grid-item item6"><video class="video" loop playsinline autoPlay muted src="assets/videos/random_generation/s79170.webm"></video></div>
+            <div class="grid-item item7"><video class="video" loop playsinline autoPlay muted src="assets/videos/random_generation/s332104.webm"></video></div>
+          </div>
+    </div>
+
+    
+    
+    <div class="white_section_nerf grey_container w-container">
+        <h2 class="grey-heading_nerf">Applications</h2>
+        <p class="paragraph-3 nerf_text nerf_results_text">
+            <b>Motion Completion.</b> Users can provide the <b style="color: rgb(235, 203, 97);">lower-body</b> motion and our method completes with diverse motions.
+        </p>
+        <div class="grid-container-4">
+            <video style="border: 2px solid rgb(124, 196, 245);" class="video" loop playsinline autoPlay muted src="assets/videos/motion_completion/gt.webm"></video>
+            <video class="video" loop playsinline autoPlay muted src="assets/videos/motion_completion/s504630.webm"></video>
+            <video class="video" loop playsinline autoPlay muted src="assets/videos/motion_completion/s504640.webm"></video>
+            <video class="video" loop playsinline autoPlay muted src="assets/videos/motion_completion/s504636.webm"></video>
+        </div>
+        <p class="paragraph-3 nerf_text nerf_results_text">
+            <b>Key Frame-guided Generation.</b> We can generate diverse novel motion sequence that follow the user given key frame poses. 
+            <div id="controls">
+                <div id="progress-bar" onclick="seek(event)">
+                    <div id="progress"></div>
+                    <div id="progress-bar-marker1"></div>
+                    <div id="progress-bar-marker2"></div>
+                </div>
+                <span id="frame-count">0</span>
+                <button id="play-pause">Pause</button>
+            </div>
+            <div class="grid-container-4">
+                <video style="border: 2px solid rgb(124, 196, 245);" class="video" loop playsinline autoPlay muted src="assets/videos/keyframe/gt_fbx_add_floor.webm"></video>
+                <video id="keyframe1" class="video" loop playsinline autoPlay muted src="assets/videos/keyframe/s403195.webm"></video>
+                <video id="keyframe2" class="video" loop playsinline autoPlay muted src="assets/videos/keyframe/s403523.webm"></video>
+                <video id="keyframe3" class="video" loop playsinline autoPlay muted src="assets/videos/keyframe/s403228.webm"></video>
+            </div>
+        </p>
+        <script>
+            const videos = [
+                document.getElementById('keyframe1'),
+                document.getElementById('keyframe2'),
+                document.getElementById('keyframe3')
+            ];
+            const playPauseButton = document.getElementById('play-pause');
+            const progressBar = document.getElementById('progress-bar');
+            const progress = document.getElementById('progress');
+            const frameCount = document.getElementById('frame-count');
+    
+            playPauseButton.addEventListener('click', () => {
+                videos.forEach(video => {
+                    if (video.paused) {
+                        video.play();
+                        playPauseButton.textContent = 'Pause';
+                    } else {
+                        video.pause();
+                        playPauseButton.textContent = 'Play';
+                    }
+                });
+            });
+    
+            videos.forEach(video => {
+                video.addEventListener('timeupdate', () => {
+                    const percentage = (video.currentTime / video.duration) * 100;
+                    progress.style.width = percentage + '%';
+                    frameCount.textContent = Math.round(video.currentTime * video.playbackRate * 30);
+                });
+            });
+    
+            function seek(event) {
+                const offsetX = event.clientX - progressBar.getBoundingClientRect().left;
+                const percentage = offsetX / progressBar.clientWidth;
+                videos.forEach(video => {
+                    video.currentTime = percentage * video.duration;
+                });
+            }
+        </script>
+
+        <p class="paragraph-3 nerf_text nerf_results_text">
+            <b>Infinite Looping.</b> By simply specifying the starting and ending pose to be identical, we can generate a infinitely looping animation. 
+        </p>
+        <div class="grid-container-3">
+            <video class="video" id="crab-looping" loop playsinline autoPlay muted src="assets/videos/looping/crab-s357662.webm"></video>
+            <video class="video" id="dragon-looping" loop playsinline autoPlay muted src="assets/videos/looping/dragon-s158621.webm"></video>
+            <video class="video" id="ch20-looping" loop playsinline autoPlay muted src="assets/videos/looping/Ch20-s157823.webm"></video>
+        </div>
+
+        <p class="paragraph-3 nerf_text nerf_results_text">
+            <b>Motion Reassembly.</b> Given two motion sequences with heterogeneous skeletons, our method can combine them to form a new creature with coherent and natural motion.
+        </p>
+        <div class="grid-container-4-text" style="margin-bottom: -25px;">
+            <div style="text-align: center">Character 1</div>
+            <div style="text-align: center">Character 2</div>
+            <div style="text-align: center">Synthesized motion 1</div>
+            <div style="text-align: center">Synthesized motion 2</div>
+        </div>
+        <div class="grid-container-4">
+            <video style="border: 2px solid rgb(124, 196, 245);" class="video" loop playsinline autoPlay muted src="assets/videos/motion_reassembly/c1.webm"></video>
+            <video style="border: 2px solid rgb(124, 196, 245);" class="video" loop playsinline autoPlay muted src="assets/videos/motion_reassembly/c2.webm"></video>
+            <video class="video" loop playsinline autoPlay muted src="assets/videos/motion_reassembly/s597288.webm"></video>
+            <video class="video" loop playsinline autoPlay muted src="assets/videos/motion_reassembly/s597427.webm"></video>
+        </div>
+        <p class="paragraph-3 nerf_text nerf_results_text">
+            <b>Locomotion.</b> When a locolotion is given as input, our framework can generate high-quality output with a different trajectory.
+        </p>
+        <div class="grid-container-4">
+            <video style="border: 2px solid rgb(124, 196, 245);" class="video" loop playsinline autoPlay muted src="assets/videos/locomotion/traj-gt.webm"></video>
+            <video style="border: 2px solid rgb(124, 196, 245);" class="video" loop playsinline autoPlay muted src="assets/videos/locomotion/walk-gt.webm"></video>
+            <video class="video" loop playsinline autoPlay muted src="assets/videos/locomotion/traj-syn.webm"></video>
+            <video class="video" loop playsinline autoPlay muted src="assets/videos/locomotion/walk-syn.webm"></video>
+        </div>
+    </div>
+
+
+
+    <div class="white_section_nerf  w-container">
+        <h2 class="grey-heading_nerf">Comparisons & Ablation</h2>
+        <p class="paragraph-3 nerf_text nerf_results_text">
+            We compare our generated results to classic and state-of-the-art techniques that can use a single input sequence. 
+            Our method outperforms these methods with diverse and high-quality results, where highly dynamic motions are well preserved. 
+        </p>
+        <div class="grid-container-4-text" style="margin-bottom: -25px;">
+            <div style="text-align: center">Input</div>
+            <div style="text-align: center">MotionTexture</div>
+            <div style="text-align: center">GANimator</div>
+            <div style="text-align: center">Ours</div>
+        </div>
+        <div class="grid-container-4">
+            <video style="border: 2px solid rgb(124, 196, 245);" class="video" loop playsinline autoPlay muted src="assets/videos/comparisons/gt.webm"></video>
+            <video class="video" loop playsinline autoPlay muted src="assets/videos/comparisons/motiontexture.webm"></video>
+            <video class="video" loop playsinline autoPlay muted src="assets/videos/comparisons/ganimator.webm"></video>
+            <video class="video" loop playsinline autoPlay muted src="assets/videos/comparisons/ours.webm"></video>
+        </div>
+        <p class="paragraph-3 nerf_text nerf_results_text">
+            GANimator struggles to incorporate all examples, resulting in the loss of a significant portion of exemplar motion patches in the synthesis. 
+            In contrast, our method effectively covers all examples, resulting in high coverage score.
+        </p>
+        <div class="grid-container-4-text">
+            <div style="text-align: center">GANimator</div>
+            <p></p>
+            <div style="text-align: center">Ours</div>
+            <p></p>
+        </div>
+        <div class="grid-container-4">
+            <video class="video" loop playsinline autoPlay muted src="assets/videos/completeness/ganimator.webm"></video>
+            <img  src="assets/images/ganimator_coverage.png">
+            <video class="video" loop playsinline autoPlay muted src="assets/videos/completeness/ours.webm"></video>
+            <img  src="assets/images/ours_coverage.png">
+        </div>
+        <p class="paragraph-3 nerf_text nerf_results_text">
+            Skeleton-aware motion patch extraction enables the generation of more diverse sequences, such as waving with one hand, 
+            compared to only generating sequences with two hands waving simultaneously without it.
+        </p>
+        <div class="grid-container-4-text">
+            <p></p>
+            <div style="text-align: center">w/o skeleton-aware</div>
+            <div style="text-align: center">w skeleton-aware</div>
+            <div style="text-align: center">w skeleton-aware</div>
+        </div>
+        <div class="grid-container-4">
+            <video style="border: 2px solid rgb(124, 196, 245);" class="video" loop playsinline autoPlay muted src="assets/videos/skeleton-aware/gt.webm"></video>
+            <video class="video" loop playsinline autoPlay muted src="assets/videos/skeleton-aware/wo.webm"></video>
+            <video class="video" loop playsinline autoPlay muted src="assets/videos/skeleton-aware/s375928.webm"></video>
+            <video class="video" loop playsinline autoPlay muted src="assets/videos/skeleton-aware/s376033.webm"></video>
+        </div>
+            
+    </div>
     <div class="white_section_nerf grey_container w-container">
         <h2 class="grey-heading_nerf">BibTeX</h2>
         <div class="bibtex">
@@ -133,7 +319,7 @@
 
 </body>
 <footer>
-    <!-- TBD -->
+    This project page is inspired by <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.
 </footer>
 
 </html>
