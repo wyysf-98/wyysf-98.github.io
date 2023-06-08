@@ -136,13 +136,51 @@
         <div class="grid-container">
             <div class="grid-item item1"><img src="assets/images/skeleton.png"></div>
             <!-- <div class="grid-item item2"><video class="video" style="border: 2px solid rgb(124, 196, 245);" loop playsinline autoPlay muted src="assets/videos/random_generation/gt_all.webm"></video></div> -->
-            <div class="grid-item item2"><video class="video" loop playsinline autoPlay muted src="assets/videos/random_generation/gt_bvh.webm"></video></div>
+            <div class="grid-item item2"><video class="video" id="video1" loop playsinline autoPlay muted src="assets/videos/random_generation/gt_bvh.webm"></video></div>
             <div class="grid-item item3"><video class="video" loop playsinline autoPlay muted src="assets/videos/random_generation/s73817.webm"></video></div>
             <div class="grid-item item4"><video class="video" loop playsinline autoPlay muted src="assets/videos/random_generation/s112706.webm"></video></div>
-            <div class="grid-item item5"><video class="video" style="border: 2px solid rgb(124, 196, 245);" loop playsinline autoPlay muted src="assets/videos/random_generation/gt.webm"></video></div>
+            <div class="grid-item item5"><video class="video" id="video2" style="border: 2px solid rgb(124, 196, 245);" loop playsinline autoPlay muted src="assets/videos/random_generation/gt.webm"></video></div>
             <div class="grid-item item6"><video class="video" loop playsinline autoPlay muted src="assets/videos/random_generation/s79170.webm"></video></div>
             <div class="grid-item item7"><video class="video" loop playsinline autoPlay muted src="assets/videos/random_generation/s332104.webm"></video></div>
           </div>
+          <script>
+            const video1 = document.getElementById("video1");
+            const video2 = document.getElementById("video2");
+
+            video1.addEventListener("play", syncVideos);
+            video1.addEventListener("pause", syncVideos);
+            video1.addEventListener("seeked", syncVideos);
+
+            video2.addEventListener("play", syncVideos);
+            video2.addEventListener("pause", syncVideos);
+            video2.addEventListener("seeked", syncVideos);
+
+            function syncVideos(event) {
+            const target = event.target;
+
+            if (target === video1) {
+                if (video1.paused && !video2.paused) {
+                video2.pause();
+                } else if (!video1.paused && video2.paused) {
+                video2.play();
+                }
+
+                if (Math.abs(video1.currentTime - video2.currentTime) > 0.1) {
+                video2.currentTime = video1.currentTime;
+                }
+            } else if (target === video2) {
+                if (video2.paused && !video1.paused) {
+                video1.pause();
+                } else if (!video2.paused && video1.paused) {
+                video1.play();
+                }
+
+                if (Math.abs(video2.currentTime - video1.currentTime) > 0.1) {
+                video1.currentTime = video2.currentTime;
+                }
+            }
+            }
+          </script>
     </div>
 
     
