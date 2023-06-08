@@ -62,7 +62,7 @@
                 <div>
                     <h1 class="nerf_affiliation_v2"><sup>1</sup>Shandong University</h1>,
                     <h1 class="nerf_affiliation_v2"><sup>2</sup>Tencent AI Lab</h1>,
-                    <h1 class="nerf_affiliation_v2"><sup>3</sup>ETH Zurich</h1>
+                    <h1 class="nerf_affiliation_v2"><sup>3</sup>ETH Zurich</h1>,
                     <h1 class="nerf_affiliation_v2"><sup>4</sup>Peking University</h1>
                 </div>
 
@@ -91,7 +91,7 @@
                     which requires time for data transmission. You can fork and change 'Controls/apu_url'.
                     <br>
                     3. Click 'Next' to try more examples from <a href="https://www.mixamo.com/#/" class="nerf_authors_v2">Mixamo</a><a href="https://www.adobe.com/legal/terms.html" class="nerf_authors_v2">©</a>. 
-                    See <a href="https://github.com/wyysf-98/GenMM" class="nerf_authors_v2">more instructions</a> and have fun :)
+                    See <a href="https://github.com/wyysf-98/GenMM" class="nerf_authors_v2">more instructions</a> if any problem and have fun :)
                 </p>
             </div>
         </div>
@@ -198,12 +198,11 @@
                 });
             });
     
-            videos.forEach(video => {
-                video.addEventListener('timeupdate', () => {
-                    const percentage = (video.currentTime / video.duration) * 100;
-                    progress.style.width = percentage + '%';
-                    frameCount.textContent = Math.round(video.currentTime * video.playbackRate * 30);
-                });
+            const video = document.getElementById('keyframe1');
+            video.addEventListener('timeupdate', () => {
+                const percentage = (video.currentTime / video.duration) * 100;
+                progress.style.width = percentage + '%';
+                frameCount.textContent = Math.round(video.currentTime * video.playbackRate * 30);
             });
     
             function seek(event) {
