@@ -130,11 +130,12 @@
             and large skeletons, including the animation of the clothes and eyes.
         </p>
         <div class="grid-container-2-text">
-            <div style="text-align: center"></div>
+            <div style="text-align: center">Input</div>
             <div style="text-align: center">Synthesized motion</div>
         </div>
         <div class="grid-container">
             <div class="grid-item item1"><img src="assets/images/skeleton.png"></div>
+            <!-- <div class="grid-item item2"><video class="video" style="border: 2px solid rgb(124, 196, 245);" loop playsinline autoPlay muted src="assets/videos/random_generation/gt_all.webm"></video></div> -->
             <div class="grid-item item2"><video class="video" style="border: 2px solid rgb(124, 196, 245);" loop playsinline autoPlay muted src="assets/videos/random_generation/gt_bvh.webm"></video></div>
             <div class="grid-item item3"><video class="video" loop playsinline autoPlay muted src="assets/videos/random_generation/s73817.webm"></video></div>
             <div class="grid-item item4"><video class="video" loop playsinline autoPlay muted src="assets/videos/random_generation/s112706.webm"></video></div>
@@ -151,6 +152,12 @@
         <p class="paragraph-3 nerf_text nerf_results_text">
             <b>Motion Completion.</b> Users can provide the <b style="color: rgb(235, 203, 97);">lower-body</b> motion and our method completes with diverse motions.
         </p>
+        <div class="grid-container-4-text">
+            <div style="text-align: center">Input</div>
+            <div style="text-align: center">Synthesized motion 1</div>
+            <div style="text-align: center">Synthesized motion 2</div>
+            <div style="text-align: center">Synthesized motion 3</div>
+        </div>
         <div class="grid-container-4">
             <video style="border: 2px solid rgb(124, 196, 245);" class="video" loop playsinline autoPlay muted src="assets/videos/motion_completion/gt.webm"></video>
             <video class="video" loop playsinline autoPlay muted src="assets/videos/motion_completion/s504630.webm"></video>
@@ -167,6 +174,12 @@
                 </div>
                 <span id="frame-count">0</span>
                 <button id="play-pause">Pause</button>
+            </div>
+            <div class="grid-container-4-text">
+                <div style="text-align: center">Input</div>
+                <div style="text-align: center">Synthesized motion 1</div>
+                <div style="text-align: center">Synthesized motion 2</div>
+                <div style="text-align: center">Synthesized motion 3</div>
             </div>
             <div class="grid-container-4">
                 <video style="border: 2px solid rgb(124, 196, 245);" class="video" loop playsinline autoPlay muted src="assets/videos/keyframe/gt_fbx_add_floor.webm"></video>
@@ -217,6 +230,11 @@
         <p class="paragraph-3 nerf_text nerf_results_text">
             <b>Infinite Looping.</b> By simply specifying the starting and ending pose to be identical, we can generate a infinitely looping animation. 
         </p>
+        <div class="grid-container-3-text">
+            <div style="text-align: center">Synthesized motion</div>
+            <div style="text-align: center">Synthesized motion</div>
+            <div style="text-align: center">Synthesized motion</div>
+        </div>
         <div class="grid-container-3">
             <video class="video" id="crab-looping" loop playsinline autoPlay muted src="assets/videos/looping/crab-s357662.webm"></video>
             <video class="video" id="dragon-looping" loop playsinline autoPlay muted src="assets/videos/looping/dragon-s158621.webm"></video>
@@ -241,6 +259,12 @@
         <p class="paragraph-3 nerf_text nerf_results_text">
             <b>Locomotion.</b> When a locolotion is given as input, our framework can generate high-quality output with a different trajectory.
         </p>
+        <div class="grid-container-4-text">
+            <div style="text-align: center">Input trajectory</div>
+            <div style="text-align: center">Input</div>
+            <div style="text-align: center">Synthesized trajectory</div>
+            <div style="text-align: center">Synthesized motion</div>
+        </div>
         <div class="grid-container-4">
             <video style="border: 2px solid rgb(124, 196, 245);" class="video" loop playsinline autoPlay muted src="assets/videos/locomotion/traj-gt.webm"></video>
             <video style="border: 2px solid rgb(124, 196, 245);" class="video" loop playsinline autoPlay muted src="assets/videos/locomotion/walk-gt.webm"></video>
@@ -290,7 +314,7 @@
             compared to only generating sequences with two hands waving simultaneously without it.
         </p>
         <div class="grid-container-4-text">
-            <p></p>
+            <div style="text-align: center">Input</div>
             <div style="text-align: center">w/o skeleton-aware</div>
             <div style="text-align: center">w/ skeleton-aware</div>
             <div style="text-align: center">w/ skeleton-aware</div>
