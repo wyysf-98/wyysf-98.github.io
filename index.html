@@ -11,29 +11,412 @@
 	<link rel="icon" type="image/x-icon" href="assets/css/images/favicon.ico">
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-	<!-- <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Palatino:400,300,400,600,700" /> -->
+	<link rel="stylesheet" href="assets/css/fontawesome-all.min.css" />
 	<link rel="stylesheet" href="assets/css/main.css" />
+	<style>
+		:root {
+			--text: #5f666b;
+			--muted: #7b8388;
+			--heading: #34383c;
+			--soft-heading: #4a5054;
+			--accent: #2d7c8f;
+			--accent-dark: #1f6576;
+			--accent-soft: #f4fafb;
+			--line: rgba(52, 56, 60, 0.11);
+		}
+
+		body {
+			color: var(--text);
+			font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+			font-size: 14pt;
+			letter-spacing: 0;
+			line-height: 1.68;
+			position: relative;
+			text-rendering: optimizeLegibility;
+		}
+
+		body:before {
+			background-color: #1f2325;
+			background-image:
+				radial-gradient(circle at 52% 29%, rgba(255, 255, 255, 0.08), transparent 24%),
+				linear-gradient(rgba(22, 25, 27, 0.68), rgba(22, 25, 27, 0.76)),
+				url("images/bg.jpg");
+			background-position: center center;
+			background-repeat: no-repeat;
+			background-size: cover;
+			content: "";
+			height: 100vh;
+			left: 0;
+			position: fixed;
+			top: 0;
+			width: 25%;
+			z-index: 0;
+		}
+
+		h1,
+		h2,
+		h3 {
+			color: var(--heading);
+			font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+			font-weight: 620;
+			letter-spacing: 0;
+		}
+
+		h4,
+		h5,
+		h6 {
+			font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+			letter-spacing: 0;
+		}
+
+		a:not(.icon) {
+			border-bottom: 0;
+			color: var(--accent);
+			text-decoration: none;
+		}
+
+		a:not(.icon):hover {
+			background: transparent;
+			color: var(--accent-dark) !important;
+			text-decoration: underline;
+			text-decoration-color: rgba(31, 101, 118, 0.32);
+			text-decoration-thickness: 1px;
+			text-underline-offset: 0.18em;
+		}
+
+		b,
+		strong {
+			color: var(--soft-heading);
+			font-weight: 650;
+		}
+
+		.about-justify {
+			color: var(--text);
+			font-size: 0.94em;
+			line-height: 1.72;
+			text-align: left;
+		}
+
+		#header {
+			background: transparent;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			overflow: hidden;
+			z-index: 1;
+		}
+
+		#footer {
+			background: transparent;
+			position: relative;
+			z-index: 1;
+		}
+
+		#footer .inner {
+			background: transparent;
+		}
+
+		#footer .icons {
+			margin: 0 0 1em 0;
+			padding: 0;
+		}
+
+		#footer .icons li {
+			display: inline-block;
+			margin: 0;
+			padding: 0 1em 0 0;
+		}
+
+		#footer .icons li:last-child {
+			padding-right: 0;
+		}
+
+		#footer .icons a {
+			color: rgba(255, 255, 255, 0.8);
+		}
+
+		#footer .icons a:hover {
+			color: rgba(255, 255, 255, 1) !important;
+		}
+
+		#footer .icons li .icon:before {
+			font-size: 1.5em;
+		}
+
+		#footer .copyright {
+			color: rgba(255, 255, 255, 0.8);
+			font-size: 0.6em;
+			list-style: none;
+			margin: 0;
+			padding: 0;
+			text-align: right;
+		}
+
+		#footer .copyright li {
+			border-left: solid 1px rgba(255, 255, 255, 0.5);
+			display: inline-block;
+			line-height: 1.5em;
+			margin-left: 0.75em;
+			padding-left: 0.75em;
+		}
+
+		#footer .copyright li:first-child {
+			border-left: 0;
+			margin-left: 0;
+			padding-left: 0;
+		}
+
+		#header h1 {
+			color: rgba(255, 255, 255, 0.94);
+			font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+			font-weight: 680;
+		}
+
+		#header h2 {
+			color: rgba(255, 255, 255, 0.72);
+			font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+			font-weight: 400;
+			letter-spacing: 0.01em;
+		}
+
+		#header .image.avatar img {
+			box-shadow: 0 0.35em 1.4em rgba(0, 0, 0, 0.28);
+		}
+
+		body.is-touch #header {
+			background: transparent;
+		}
+
+		.heading-link {
+			font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+			font-size: 0.48em;
+			font-weight: 500;
+			margin-left: 0.95em;
+			vertical-align: middle;
+		}
+
+		.heading-link a {
+			border-bottom: 0;
+			color: var(--accent);
+		}
+
+		.heading-link a:hover {
+			background: transparent;
+			color: var(--accent-dark) !important;
+			text-decoration: none;
+		}
+
+		#two .work-item {
+			border-bottom: 1px solid var(--line);
+			margin-bottom: 1.55em;
+			padding-bottom: 1.55em;
+		}
+
+		#two .box:last-of-type .work-item {
+			border-bottom: 0;
+		}
+
+		#two .image.fit,
+		#two .video.fit {
+			background: #fff;
+			border: 1px solid var(--line);
+			box-shadow: 0 0.45em 1.4em rgba(31, 43, 48, 0.055);
+			overflow: hidden;
+		}
+
+		#two .image.fit img,
+		#two .video.fit video {
+			aspect-ratio: 16 / 9;
+		}
+
+		#two .image.fit img {
+			object-fit: contain;
+		}
+
+		#two .video.fit video {
+			object-fit: cover;
+		}
+
+		#two .cropped-thumb img {
+			display: block;
+			height: 100%;
+			object-fit: cover;
+			object-position: center center;
+			width: 100%;
+		}
+
+		#two .cropped-thumb {
+			aspect-ratio: 16 / 9;
+		}
+
+		#two span.image.thumb:before,
+		#two span.image.thumb:after,
+		#two .external-video:before,
+		#two .external-video:after {
+			display: none;
+		}
+
+		#two .work-item h4 {
+			color: var(--heading);
+			font-size: 0.96em;
+			font-weight: 560;
+			line-height: 1.42;
+			margin-top: -0.1em;
+		}
+
+		#two .work-item h5 {
+			color: var(--text);
+			font-size: 0.8em;
+			line-height: 1.55;
+		}
+
+		.award-badge {
+			background: rgba(255, 255, 255, 0.82);
+			border: 1px solid rgba(74, 80, 84, 0.16);
+			border-radius: 999px;
+			box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.65);
+			color: #5f666b;
+			display: inline-block;
+			font-size: 0.88em;
+			font-weight: 600;
+			letter-spacing: 0.01em;
+			line-height: 1.2;
+			margin-left: 0.45em;
+			padding: 0.18em 0.62em 0.2em;
+			vertical-align: baseline;
+			white-space: nowrap;
+		}
+
+		#two .work-item h5 a {
+			background: var(--accent-soft);
+			border: 1px solid rgba(45, 124, 143, 0.13);
+			border-radius: 0.35em;
+			color: var(--accent);
+			display: inline-block;
+			line-height: 1.35;
+			margin: 0.1em 0.18em 0.1em 0;
+			padding: 0.03em 0.34em;
+			white-space: nowrap;
+		}
+
+		#two .work-item h5 a:hover {
+			background: #eef8fa;
+			border-color: rgba(45, 124, 143, 0.28);
+			color: var(--accent-dark) !important;
+			text-decoration: none;
+		}
+
+		#three table tbody tr {
+			transition: background-color 0.18s ease-in-out;
+		}
+
+		#three table tbody tr:hover {
+			background-color: var(--accent-soft);
+		}
+
+		#three table td:last-child {
+			color: var(--muted);
+			text-align: right;
+			white-space: nowrap;
+		}
+
+		@media screen and (max-width: 1042px) {
+			body:before {
+				display: none;
+			}
+
+			#header {
+				background-color: #1f2325;
+				background-image:
+					radial-gradient(circle at 52% 29%, rgba(255, 255, 255, 0.08), transparent 24%),
+					linear-gradient(rgba(22, 25, 27, 0.68), rgba(22, 25, 27, 0.76)),
+					url("images/bg.jpg");
+				display: flex;
+				background-position: center center;
+				background-repeat: no-repeat;
+				background-size: cover;
+				justify-content: space-between;
+				min-height: 100svh;
+				padding-bottom: 1.25em;
+			}
+
+			#footer {
+				background: transparent;
+				padding-top: 0;
+				width: 100%;
+			}
+
+			body.is-touch #header {
+				background-color: #1f2325;
+				background-image:
+					radial-gradient(circle at 52% 29%, rgba(255, 255, 255, 0.08), transparent 24%),
+					linear-gradient(rgba(22, 25, 27, 0.68), rgba(22, 25, 27, 0.76)),
+					url("images/bg.jpg");
+				background-position: center center;
+				background-repeat: no-repeat;
+				background-size: cover;
+			}
+
+			body.is-touch #footer {
+				background: transparent;
+			}
+		}
+
+		@media screen and (max-width: 736px) {
+			#header {
+				min-height: 100svh;
+				padding-bottom: 1em;
+			}
+
+			#footer .icons {
+				margin: 0 0 1em 0;
+			}
+
+			#footer .copyright {
+				font-size: 0.6em;
+			}
+		}
+	</style>
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZVWWW5E2J3"></script>
 	<script>
 		window.dataLayer = window.dataLayer || [];
 		function gtag() { dataLayer.push(arguments); }
 		gtag('js', new Date());
-
 		gtag('config', 'G-ZVWWW5E2J3');
 	</script>
 </head>
 
-<body class="is-preload">
+<body>
 
 	<!-- Header -->
 	<header id="header">
 		<div class="inner">
-			<a href="#" class="image avatar"><img src="images/avator.jpg" alt="" /></a>
+			<a href="#" class="image avatar"><img src="images/avator.jpg" alt="" decoding="async" fetchpriority="high" /></a>
 			<h1>Weiyu Li</h1>
 			<h2>Ph.D. candidate in HKUST</h2>
 			<h2>3D Generation, VR/AR/XR</h2>
 		</div>
+		<footer id="footer">
+			<div class="inner">
+				<ul class="icons">
+					<li><a href="mailto:weiyuli.cn@gmail.com" class="icon solid fa-envelope"><span
+						class="label">Email</span></a></li>
+					<li><a href="https://twitter.com/weiyuli99072112" class="icon brands fa-twitter"><span
+								class="label">Twitter</span></a></li>
+					<li><a href="https://github.com/wyysf-98" class="icon brands fa-github"><span
+								class="label">Github</span></a></li>
+					<li><a href="https://scholar.google.com/citations?hl=zh-TW&user=NvnEYmoAAAAJ" class="icon solid fa-graduation-cap"><span 
+								class="label">GoogleScholar</span></a></li>
+					<li><a href="WeiyuLi_CV.pdf" class="icon solid fa-file-contract"><span 
+						class="label">CV</span></a></li>
+				</ul>
+				<ul class="copyright">
+					<li>&copy; Weiyu Li. All rights reserved.</li>
+					<li>Design: HTML5 UP</li>
+				</ul>
+			</div>
+		</footer>
 	</header>
 	<!-- Main -->
 	<div id="main">
@@ -44,23 +427,25 @@
 			</header>
 			<p class="about-justify">I am a Ph.D. candidate at <a href="https://hkust.edu.hk/">HKUST</a>, 
 				advised by <a href="https://ece.hkust.edu.hk/pingtan">Prof. Ping Tan</a>.
-				Prior to this, I earned my Master's and Bachelor's degrees in 2023 and 2020 at the
-				<a href="http://irc.cs.sdu.edu.cn/">Interdisciplinary Research Center (IRC-SDU)</a> 
-				and worked at <a href="http://vcl.pku.edu.cn/index.html">Visual Computing and Learning Lab (VCL-PKU)</a>,
-				where I am honored to be advised by
+				Prior to this, I earned my Master's and Bachelor's degrees in 2023 and 2020 from the
+				<a href="http://irc.cs.sdu.edu.cn/">Interdisciplinary Research Center (IRC)</a>, <a href="https://www.en.sdu.edu.cn/">Shandong University</a>,
+				where I was honored to be advised by
 				<a href="https://cfcs.pku.edu.cn/baoquan/">Prof. Baoquan Chen</a>.
-				During my studies, I also had the opportunity to work as a research intern at 
-				<a href="https://ai.tencent.com/">Tencent AI Lab</a>,
-				worked with
+				I also worked at the <a href="http://vcl.pku.edu.cn/index.html">Visual Computing and Learning Lab (VCL-PKU)</a> during my master period.
+				I have been fortunate to intern at Meta AI with
+				<a href="https://www.robots.ox.ac.uk/~vedaldi/">Prof. Andrea Vedaldi</a>,
+				StepFun with Xuanyang Zhang,
+				Adobe with
+				<a href="https://tuanfeng.github.io/">Dr. Tuanfeng Y. Wang</a>,
+				and <a href="https://ai.tencent.com/">Tencent AI Lab</a> with
 				<a href="https://xuelin-chen.github.io/">Dr. Xuelin Chen</a> and <a
-					href="https://juewang725.github.io/">Dr. Jue Wang</a> .
+					href="https://juewang725.github.io/">Dr. Jue Wang</a>.
 				<br />
-				My research lies in
-				<b>3D Content Generation</b>, and I am also interested in
-				<b>Point Cloud Processing, Efficient Computer Vision, HCI with AR, etc.</b>
-				The 3D world we live in is fascinating, capturing, and reenacting the world into the virtual world, and
-				interacting with them will bring more fantasies to our life.
-				For that, I am working on building the virtual world with the help of AI.
+				My research focuses on
+				3D Content Generation, with broader interests in
+				Point Cloud Processing, Efficient Computer Vision, and HCI with AR.
+				I am fascinated by how we can capture, generate, and interact with the 3D world in virtual spaces.
+				My goal is to build expressive and controllable virtual worlds with the help of AI.
 				<br>
 				<!-- <b style="color: rgb(222, 95, 95);">*I am currently seeking a research intern position, please feel free to contact me.</b> -->
 			</p>
@@ -70,11 +455,12 @@
 			<div class="row">
 				<div class="col-12 col-12-xsmall">
 					<ul>
+						<li>One paper was selected as a CVPR 2026 highlight.</li>
+						<li>One paper was selected as a CVPR 2025 oral presentation.</li>
 						<li>One paper was accepted to ICLR 2024.</li>
 						<li>One paper was accepted to SIGGRAPH 2023 (TOG).</li>
-						<li>One paper was accepted to CVPR 2023.</li>
 						<li>One paper was accepted to Eurographics 2022.</li>
-						<li>Won two special prizes in the RPA Competition of the Chinese Academy of Sciences with 200k RMB.</li> 
+						<li>Won two special prizes in the Pilot Cup National University High Performance Computing Competition with RMB 200k bonus.</li> 
 					</ul>
 				</div>
 			</div>
@@ -82,14 +468,124 @@
 
 		<!-- Two -->
 		<section id="two">
-			<h2>Publications</h2>
+			<h2>Publications <span class="heading-link"><a href="publications.html">all publications</a></span></h2>
 
 			<div class="box alt">
 				<article class="row gtr-50 gtr-uniform work-item">
 					<div class="col-4">
-						<a href="https://youtu.be/CtqA4lwCO-4||https://www.bilibili.com/blackboard/html5mobileplayer.html?bvid=BV1ms4y1M7Kk" data-poptrox="youtube" class="video fit thumb">
-						<!-- <a href="https://youtu.be/oznr-1-poSU||https://www.bilibili.com/blackboard/html5mobileplayer.html?bvid=BV1ms4y1M7Kk" data-poptrox="youtube" class="video fit thumb"> -->
-							<video loop playsinline autoPlay muted
+						<span class="video fit">
+							<video loop playsinline autoplay muted preload="none"
+								poster="images/publications/MeshFlow.png"
+								src="images/publications/MeshFlow.mp4" alt="MeshFlow"></video>
+						</span>
+					</div>
+					<div class="col-8">
+						<span>
+							<h4>
+								MeshFlow: Efficient Artistic Mesh Generation via MeshVAE and Flow-based Diffusion Transformer
+							</h4>
+							<h5>
+								<strong>Weiyu Li</strong>,
+								Antoine Toisoul,
+								Tom Monnier,
+								Roman Shapovalov,
+								Rakesh Ranjan,
+								Ping Tan,
+								Andrea Vedaldi
+								<br>
+							</h5>
+							<h5>
+								CVPR 2026 <strong>Highlight</strong>
+								<a href="https://mesh-flow.github.io/">[WebPage]</a>
+								<a href="https://openaccess.thecvf.com/content/CVPR2026/papers/Li_MeshFlow_Efficient_Artistic_Mesh_Generation_via_MeshVAE_and_Flow-based_Diffusion_CVPR_2026_paper.pdf">[Paper]</a>
+								<a href="https://openaccess.thecvf.com/content/CVPR2026/supplemental/Li_MeshFlow_Efficient_Artistic_CVPR_2026_supplemental.pdf">[Supp]</a>
+							</h5>
+						</span>
+					</div>
+				</article>
+			</div>
+
+			<div class="box alt">
+				<article class="row gtr-50 gtr-uniform work-item">
+					<div class="col-4">
+						<span class="video fit">
+							<video loop playsinline autoplay muted preload="none"
+								poster="images/publications/CraftsMan3D.png"
+								src="images/publications/CraftsMan3D.mp4" alt="CraftsMan3D"></video>
+						</span>
+					</div>
+					<div class="col-8">
+						<span>
+							<h4>
+								CraftsMan3D: High-Fidelity Mesh Generation with 3D Native Diffusion and Interactive Geometry Refiner
+							</h4>
+							<h5>
+								<strong>Weiyu Li<sup>*</sup></strong>,
+								Jiarui Liu<sup>*</sup>,
+								Hongyu Yan<sup>*</sup>,
+								Rui Chen,
+								Yixun Liang,
+								Xuelin Chen,
+								Ping Tan,
+								Xiaoxiao Long
+								<br>
+							</h5>
+							<h5>
+								CVPR 2025 <strong>Oral</strong>
+								<a href="https://craftsman3d.github.io/">[WebPage]</a>
+								<a href="https://arxiv.org/abs/2405.14979">[arXiv]</a>
+								<a href="https://openaccess.thecvf.com/content/CVPR2025/papers/Li_CraftsMan3D_High-fidelity_Mesh_Generation_with_3D_Native_Diffusion_and_Interactive_CVPR_2025_paper.pdf">[Paper]</a>
+								<a href="https://github.com/wyysf-98/CraftsMan3D">[Code]</a>
+								<a href="https://www.youtube.com/watch?v=WhEs4tS4mGo">[Video]</a>
+							</h5>
+						</span>
+					</div>
+				</article>
+			</div>
+
+			<div class="box alt">
+				<article class="row gtr-50 gtr-uniform work-item">
+					<div class="col-4">
+						<span class="image fit thumb cropped-thumb"><img src="images/publications/Step1X-3D.png" alt="Step1X-3D" loading="lazy" decoding="async" /></span>
+					</div>
+					<div class="col-8">
+						<span>
+							<h4>
+								Step1X-3D: Towards High-Fidelity and Controllable Generation of Textured 3D Assets
+							</h4>
+							<h5>
+								<strong>Weiyu Li</strong>,
+								Xuanyang Zhang,
+								Zheng Sun,
+								Di Qi,
+								Hao Li,
+								Wei Cheng,
+								Weiwei Cai,
+								Shihao Wu,
+								Jiarui Liu,
+								Zihao Wang,
+								et al.
+								<br>
+							</h5>
+							<h5>
+								Tech Report, 2025
+								<a href="https://stepfun-ai.github.io/Step1X-3D/">[WebPage]</a>
+								<a href="https://arxiv.org/abs/2505.07747">[Paper]</a>
+								<a href="https://github.com/stepfun-ai/Step1X-3D">[Code]</a>
+								<a href="https://huggingface.co/spaces/stepfun-ai/Step1X-3D">[Demo]</a>
+								<a href="https://huggingface.co/stepfun-ai/Step1X-3D">[Model]</a>
+								<a href="https://huggingface.co/datasets/stepfun-ai/Step1X-3D-obj-data/tree/main">[Dataset]</a>
+							</h5>
+						</span>
+					</div>
+				</article>
+			</div>
+
+			<div class="box alt">
+				<article class="row gtr-50 gtr-uniform work-item">
+					<div class="col-4">
+						<a href="https://youtu.be/CtqA4lwCO-4" target="_blank" rel="noopener noreferrer" class="video fit external-video">
+							<video loop playsinline autoPlay muted preload="none"
 								src="images/publications/SweetDreamer.mp4" alt="SweetDreamer" ></video>
 						</a>
 						<h3 hidden>Play-and-plugin module for high-quality text-to-3D generation</h3>
@@ -101,9 +597,9 @@
 							</h4>
 							<h5>
 								<strong>Weiyu Li</strong>,
-								<a href="https://aruichen.github.io/">Rui Chen</a>,
-								<a href="https://xuelin-chen.github.io/">Xuelin Chen</a>,
-								<a href="https://ece.hkust.edu.hk/pingtan">Ping Tan</a>
+								Rui Chen,
+								Xuelin Chen,
+								Ping Tan
 								<br>
 							</h5>
 							<h5>
@@ -122,8 +618,8 @@
 			<div class="box alt">
 				<article class="row gtr-50 gtr-uniform work-item">
 					<div class="col-4">
-						<a href="https://youtu.be/lehnxcade4I||https://www.bilibili.com/blackboard/html5mobileplayer.html?bvid=BV1b841167rb" data-poptrox="youtube" class="video fit thumb">
-							<video loop playsinline autoPlay muted
+						<a href="https://youtu.be/lehnxcade4I" target="_blank" rel="noopener noreferrer" class="video fit external-video">
+							<video loop playsinline autoPlay muted preload="none"
 								src="images/publications/GMM.mp4" alt="SIGGRAPH2023_GMMM" ></video>
 						</a>
 						<h3 hidden>Generating diverse motions using a single or few example without training</h3>
@@ -135,10 +631,10 @@
 							</h4>
 							<h5>
 								<strong>Weiyu Li<sup>*</sup></strong>,
-								<a href="https://xuelin-chen.github.io/">Xuelin Chen<sup>*†</sup></a>,
-								<a href="https://peizhuoli.github.io/">Peizhuo Li</a>,
-								<a href="https://igl.ethz.ch/people/sorkine/">Olga Sorkine-Hornung</a>,
-								<a href="https://cfcs.pku.edu.cn/baoquan/">Baoquan Chen</a>
+								Xuelin Chen<sup>*†</sup>,
+								Peizhuo Li,
+								Olga Sorkine-Hornung,
+								Baoquan Chen
 								<br>
 							</h5>
 							<h5>
@@ -160,8 +656,8 @@
 			<div class="box alt">
 				<article class="row gtr-50 gtr-uniform work-item">
 					<div class="col-4">
-						<a href="https://youtu.be/-buKPdBmLWo||https://player.bilibili.com/player.html?bvid=BV1cV4y1U7v4" data-poptrox="youtube" class="video fit thumb">
-							<video loop playsinline autoPlay muted
+						<a href="https://youtu.be/-buKPdBmLWo" target="_blank" rel="noopener noreferrer" class="video fit external-video">
+							<video loop playsinline autoPlay muted preload="none"
 								src="images/publications/Sin3DGen.mp4" alt="CVPR2023_Sin3DGen" ></video>
 						</a>
 						<h3 hidden>Generating diverse scenes from a single example and providing editing capabilities</h3>
@@ -173,9 +669,9 @@
 							</h4>
 							<h5>
 								<strong>Weiyu Li<sup>*</sup></strong>,
-								<a href="https://xuelin-chen.github.io/">Xuelin Chen<sup>*†</sup></a>,
-								<a href="https://juewang725.github.io/">Jue Wang</a>,
-								<a href="https://cfcs.pku.edu.cn/baoquan/">Baoquan Chen</a>
+								Xuelin Chen<sup>*†</sup>,
+								Jue Wang,
+								Baoquan Chen
 								<br>
 							</h5>
 							<h5>
@@ -194,8 +690,8 @@
 			<div class="box alt">
 				<article class="row gtr-50 gtr-uniform work-item">
 					<div class="col-4">
-						<a href="http://youtu.be/cEsGnqwdtvM||https://player.bilibili.com/player.html?bvid=BV1Uh4y147Cv&danmaku=0" data-poptrox="youtube" class="video fit thumb">
-							<video loop playsinline autoPlay muted
+						<a href="https://youtu.be/cEsGnqwdtvM" target="_blank" rel="noopener noreferrer" class="video fit external-video">
+							<video loop playsinline autoPlay muted preload="none"
 								src="images/publications/MoCo_Flow.mp4" alt="EG2022_MoCo-Flow" ></video>
 						</a>
 						<h3 hidden>Building the dynamic humans by only using a mobile phone</h3>
@@ -206,11 +702,11 @@
 								MoCo-Flow: Neural Motion Consensus Flow for Dynamic Humans in Stationary Monocular Cameras
 							</h4>
 							<h5>
-								<a href="https://xuelin-chen.github.io/">Xuelin Chen</a>,
+								Xuelin Chen,
 								<strong>Weiyu Li</strong>,
-								<a href="https://danielcohenor.com/">Daniel Cohen-Or</a>,
-								<a href="http://www0.cs.ucl.ac.uk/staff/n.mitra/">Niloy J. Mitra</a>,
-								<a href="https://cfcs.pku.edu.cn/baoquan/">Baoquan Chen</a>
+								Daniel Cohen-Or,
+								Niloy J. Mitra,
+								Baoquan Chen
 								<br>
 							</h5>
 							<h5>
@@ -226,7 +722,6 @@
 				</article>
 			</div>
 
-
 		</section>
 
 		<!-- Three -->
@@ -236,16 +731,28 @@
 				<table>
 					<tbody>
 						<tr>
+							<td><b>Meta AI</b> | Research intern</td>
+							<td>London, UK</td>
+						</tr>
+						<tr>
+							<td><b>StepFun</b> | Research intern</td>
+							<td>Remote</td>
+						</tr>
+						<tr>
+							<td><b>Adobe</b> | Research intern</td>
+							<td>London, UK</td>
+						</tr>
+						<tr>
 							<td><b>Tencent AI-Lab</b> | Research intern</td>
-							<td>2021.11 – 2023.07</td>
+							<td>Shenzhen, China</td>
 						</tr>
 						<tr>
 							<td><b>VCL Lab, Peking University</b> | Visiting student</td>
-							<td>2021.08 – 2021.11</td>
+							<td>Beijing, China</td>
 						</tr>
 						<tr>
-							<td><b>AICFVE, Beijing Film Academy</b> | Research intern (remote)</td>
-							<td> 2021.01 – 2021.06</td>
+							<td><b>AICFVE, Beijing Film Academy</b> | Research intern</td>
+							<td>Remote</td>
 						</tr>
 					</tbody>
 				</table>
@@ -280,48 +787,18 @@
 
 			<div class="box alt">
 				<div class="row gtr-50 gtr-uniform">
-					<div class="col-3"><span class="image fit"><img src="images/thumbs/01.jpg" alt="" /></span>
+					<div class="col-3"><span class="image fit"><img src="images/thumbs/01.jpg" alt="" loading="lazy" decoding="async" /></span>
 					</div>
-					<div class="col-3"><span class="image fit"><img src="images/thumbs/02.jpg" alt="" /></span>
+					<div class="col-3"><span class="image fit"><img src="images/thumbs/02.jpg" alt="" loading="lazy" decoding="async" /></span>
 					</div>
-					<div class="col-3"><span class="image fit"><img src="images/thumbs/03.jpg" alt="" /></span>
+					<div class="col-3"><span class="image fit"><img src="images/thumbs/03.jpg" alt="" loading="lazy" decoding="async" /></span>
 					</div>
-					<div class="col-3"><span class="image fit"><img src="images/thumbs/04.jpg" alt="" /></span>
+					<div class="col-3"><span class="image fit"><img src="images/thumbs/04.jpg" alt="" loading="lazy" decoding="async" /></span>
 					</div>
 				</div>
 			</div>
 		</section>
 	</div>
-
-	<!-- Footer -->
-	<footer id="footer">
-		<div class="inner">
-			<ul class="icons">
-				<li><a href="mailto:weiyuli.cn@gmail.com" class="icon solid fa-envelope"><span
-					class="label">Email</span></a></li>
-				<li><a href="https://twitter.com/weiyuli99072112" class="icon brands fa-twitter"><span
-							class="label">Twitter</span></a></li>
-				<li><a href="https://github.com/wyysf-98" class="icon brands fa-github"><span
-							class="label">Github</span></a></li>
-				<li><a href="https://scholar.google.com/citations?hl=zh-TW&user=NvnEYmoAAAAJ" class="icon solid fa-graduation-cap"><span 
-							class="label">GoogleScholar</span></a></li>
-				<li><a href="WeiyuLi_CV.pdf" class="icon solid fa-file-contract"><span 
-					class="label">CV</span></a></li>
-			</ul>
-			<ul class="copyright">
-				<li>&copy; Weiyu Li. All rights reserved.</li>
-				<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-			</ul>
-		</div>
-	</footer>
-
-	<!-- Scripts -->
-	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/jquery.poptrox.min.js"></script>
-	<script src="assets/js/browser.min.js"></script>
-	<script src="assets/js/breakpoints.min.js"></script>
-	<script src="assets/js/util.js"></script>
-	<script src="assets/js/main.js"></script>
 
 </body>
 

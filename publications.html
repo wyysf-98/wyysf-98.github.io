@@ -1,0 +1,572 @@
+<!DOCTYPE HTML>
+<!--
+	Strata by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+<head>
+	<title>Weiyu Li's Publications</title>
+	<link rel="icon" type="image/x-icon" href="assets/css/images/favicon.ico">
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<style>
+		:root {
+			--text: #5f666b;
+			--muted: #7b8388;
+			--heading: #34383c;
+			--soft-heading: #4a5054;
+			--accent: #2d7c8f;
+			--accent-dark: #1f6576;
+			--accent-soft: #f4fafb;
+			--line: rgba(52, 56, 60, 0.11);
+		}
+
+		body {
+			color: var(--text);
+			font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+			font-size: 14pt;
+			letter-spacing: 0;
+			line-height: 1.68;
+			position: relative;
+			text-rendering: optimizeLegibility;
+		}
+
+		body:before {
+			background-color: #1f2325;
+			background-image:
+				radial-gradient(circle at 52% 29%, rgba(255, 255, 255, 0.08), transparent 24%),
+				linear-gradient(rgba(22, 25, 27, 0.68), rgba(22, 25, 27, 0.76)),
+				url("images/bg.jpg");
+			background-position: center center;
+			background-repeat: no-repeat;
+			background-size: cover;
+			content: "";
+			height: 100vh;
+			left: 0;
+			position: fixed;
+			top: 0;
+			width: 25%;
+			z-index: 0;
+		}
+
+		h1,
+		h2,
+		h3 {
+			color: var(--heading);
+			font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+			font-weight: 620;
+			letter-spacing: 0;
+		}
+
+		h4,
+		h5,
+		h6 {
+			font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+			letter-spacing: 0;
+		}
+
+		a:not(.icon) {
+			border-bottom: 0;
+			color: var(--accent);
+			text-decoration: none;
+		}
+
+		a:not(.icon):hover {
+			background: transparent;
+			color: var(--accent-dark) !important;
+			text-decoration: underline;
+			text-decoration-color: rgba(31, 101, 118, 0.32);
+			text-decoration-thickness: 1px;
+			text-underline-offset: 0.18em;
+		}
+
+		b,
+		strong {
+			color: var(--soft-heading);
+			font-weight: 650;
+		}
+
+		#header {
+			background: transparent;
+			overflow: hidden;
+			z-index: 1;
+		}
+
+		#footer {
+			background: transparent;
+			position: relative;
+			z-index: 1;
+		}
+
+		#footer .inner {
+			background: transparent;
+		}
+
+		#footer .icons a {
+			color: rgba(255, 255, 255, 0.72);
+		}
+
+		#footer .icons a:hover {
+			color: rgba(255, 255, 255, 0.92) !important;
+		}
+
+		#footer .copyright {
+			color: rgba(255, 255, 255, 0.62);
+		}
+
+		#footer .copyright li {
+			border-left-color: rgba(255, 255, 255, 0.24);
+		}
+
+		#header h1 {
+			color: rgba(255, 255, 255, 0.94);
+			font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+			font-weight: 680;
+		}
+
+		#header h2 {
+			color: rgba(255, 255, 255, 0.72);
+			font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+			font-weight: 400;
+			letter-spacing: 0.01em;
+		}
+
+		#header .image.avatar img {
+			box-shadow: 0 0.35em 1.4em rgba(0, 0, 0, 0.28);
+		}
+
+		body.is-touch #header {
+			background: transparent;
+		}
+
+		.pub-list article {
+			border-bottom: 1px solid var(--line);
+			padding: 1.2em 0;
+		}
+
+		.pub-list article:first-child {
+			padding-top: 0;
+		}
+
+		.pub-list article:last-child {
+			border-bottom: 0;
+		}
+
+		.pub-list .pub-year {
+			color: var(--muted);
+			font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+			font-size: 0.82em;
+			font-weight: 650;
+			letter-spacing: 0.02em;
+			margin: 1.5em 0 0.1em;
+		}
+
+		.pub-list .pub-year:first-child {
+			margin-top: 0;
+		}
+
+		.pub-list h3 {
+			color: var(--heading);
+			font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+			font-size: 1.02em;
+			font-weight: 560;
+			line-height: 1.42;
+			margin-bottom: 0.35em;
+		}
+
+		.pub-list h5 {
+			color: var(--text);
+			font-size: 0.86em;
+			line-height: 1.55;
+			margin-bottom: 0.35em;
+		}
+
+		.pub-list h5 a {
+			background: var(--accent-soft);
+			border: 1px solid rgba(45, 124, 143, 0.13);
+			border-radius: 0.35em;
+			color: var(--accent);
+			display: inline-block;
+			line-height: 1.35;
+			margin: 0.1em 0.18em 0.1em 0;
+			padding: 0.03em 0.34em;
+			white-space: nowrap;
+		}
+
+		.pub-list h5 a:hover {
+			background: #eef8fa;
+			border-color: rgba(45, 124, 143, 0.28);
+			color: var(--accent-dark) !important;
+			text-decoration: none;
+		}
+
+		.pub-venue {
+			color: var(--muted);
+		}
+
+		.pub-intro {
+			color: var(--muted);
+			font-size: 0.9em;
+			margin-bottom: 1.6em;
+		}
+
+		@media screen and (max-width: 1042px) {
+			body:before {
+				display: none;
+			}
+
+			#header {
+				background-color: #1f2325;
+				background-image:
+					radial-gradient(circle at 52% 29%, rgba(255, 255, 255, 0.08), transparent 24%),
+					linear-gradient(rgba(22, 25, 27, 0.68), rgba(22, 25, 27, 0.76)),
+					url("images/bg.jpg");
+				background-position: center center;
+				background-repeat: no-repeat;
+				background-size: cover;
+			}
+
+			#footer {
+				background: #1b2121;
+				padding-top: 1.15em;
+			}
+
+			body.is-touch #header {
+				background-color: #1f2325;
+				background-image:
+					radial-gradient(circle at 52% 29%, rgba(255, 255, 255, 0.08), transparent 24%),
+					linear-gradient(rgba(22, 25, 27, 0.68), rgba(22, 25, 27, 0.76)),
+					url("images/bg.jpg");
+				background-position: center center;
+				background-repeat: no-repeat;
+				background-size: cover;
+			}
+
+			body.is-touch #footer {
+				background: #1b2121;
+			}
+		}
+	</style>
+</head>
+
+<body class="is-preload">
+
+	<!-- Header -->
+	<header id="header">
+		<div class="inner">
+			<a href="index.html" class="image avatar"><img src="images/avator.jpg" alt="" /></a>
+			<h1>Weiyu Li</h1>
+			<h2>Publications</h2>
+		</div>
+	</header>
+
+	<!-- Main -->
+	<div id="main">
+		<section id="one">
+			<header class="major">
+				<h2>All Publications</h2>
+			</header>
+			<p class="pub-intro"><a href="index.html">Back to homepage</a></p>
+
+			<div class="pub-list">
+				<h3 class="pub-year">2026</h3>
+				<article>
+					<h3>MeshFlow: Efficient Artistic Mesh Generation via MeshVAE and Flow-based Diffusion Transformer</h3>
+					<h5>
+						<strong>Weiyu Li</strong>,
+						Antoine Toisoul,
+						Tom Monnier,
+						Roman Shapovalov,
+						Rakesh Ranjan,
+						Ping Tan,
+						Andrea Vedaldi
+					</h5>
+					<h5 class="pub-venue">
+						CVPR 2026 <strong>Highlight</strong>
+						<a href="https://mesh-flow.github.io/">[WebPage]</a>
+						<a href="https://openaccess.thecvf.com/content/CVPR2026/papers/Li_MeshFlow_Efficient_Artistic_Mesh_Generation_via_MeshVAE_and_Flow-based_Diffusion_CVPR_2026_paper.pdf">[Paper]</a>
+						<a href="https://openaccess.thecvf.com/content/CVPR2026/supplemental/Li_MeshFlow_Efficient_Artistic_CVPR_2026_supplemental.pdf">[Supp]</a>
+					</h5>
+				</article>
+
+				<article>
+					<h3>SceneMaker: Open-set 3D Scene Generation with Decoupled De-occlusion and Pose Estimation Model</h3>
+					<h5>
+						Yukai Shi,
+						<strong>Weiyu Li</strong>,
+						Zihao Wang,
+						Hongyang Li,
+						Xingyu Chen,
+						Ping Tan,
+						Lei Zhang
+					</h5>
+					<h5 class="pub-venue">
+						CVPR 2026
+						<a href="https://idea-research.github.io/SceneMaker/">[WebPage]</a>
+						<a href="https://openaccess.thecvf.com/content/CVPR2026/html/Shi_SceneMaker_Open-set_3D_Scene_Generation_with_Decoupled_De-occlusion_and_Pose_CVPR_2026_paper.html">[Paper]</a>
+					</h5>
+				</article>
+
+				<article>
+					<h3>UniTEX: Universal High Fidelity Generative Texturing for 3D Shapes</h3>
+					<h5>
+						Yixun Liang,
+						Kunming Luo,
+						Xuelin Chen,
+						Rui Chen,
+						Hongyu Yan,
+						<strong>Weiyu Li</strong>,
+						Jiarui Liu,
+						Ping Tan
+					</h5>
+					<h5 class="pub-venue">
+						CVPR 2026
+						<a href="https://arxiv.org/abs/2505.23253">[Paper]</a>
+					</h5>
+				</article>
+
+				<article>
+					<h3>PoseMaster: Generating 3D Characters in Arbitrary Poses from a Single Image</h3>
+					<h5>
+						Hongyu Yan,
+						Kunming Luo,
+						<strong>Weiyu Li</strong>,
+						Yixun Liang,
+						Shengming Li,
+						Jingwei Huang,
+						Chunchao Guo,
+						Ping Tan
+					</h5>
+					<h5 class="pub-venue">
+						CVPR 2026
+						<a href="https://arxiv.org/abs/2506.21076">[Paper]</a>
+					</h5>
+				</article>
+
+				<h3 class="pub-year">2025</h3>
+				<article>
+					<h3>CraftsMan3D: High-Fidelity Mesh Generation with 3D Native Diffusion and Interactive Geometry Refiner</h3>
+					<h5>
+						<strong>Weiyu Li<sup>*</sup></strong>,
+						Jiarui Liu<sup>*</sup>,
+						Hongyu Yan<sup>*</sup>,
+						Rui Chen,
+						Yixun Liang,
+						Xuelin Chen,
+						Ping Tan,
+						Xiaoxiao Long
+					</h5>
+					<h5 class="pub-venue">
+						CVPR 2025 <strong>Oral</strong>
+						<a href="https://craftsman3d.github.io/">[WebPage]</a>
+						<a href="https://arxiv.org/abs/2405.14979">[arXiv]</a>
+						<a href="https://openaccess.thecvf.com/content/CVPR2025/papers/Li_CraftsMan3D_High-fidelity_Mesh_Generation_with_3D_Native_Diffusion_and_Interactive_CVPR_2025_paper.pdf">[Paper]</a>
+						<a href="https://github.com/wyysf-98/CraftsMan3D">[Code]</a>
+						<a href="https://www.youtube.com/watch?v=WhEs4tS4mGo">[Video]</a>
+					</h5>
+				</article>
+
+				<article>
+					<h3>Step1X-3D: Towards High-Fidelity and Controllable Generation of Textured 3D Assets</h3>
+					<h5>
+						<strong>Weiyu Li</strong>,
+						Xuanyang Zhang,
+						Zheng Sun,
+						Di Qi,
+						Hao Li,
+						Wei Cheng,
+						Weiwei Cai,
+						Shihao Wu,
+						Jiarui Liu,
+						Zihao Wang,
+						et al.
+					</h5>
+					<h5 class="pub-venue">
+						Tech Report, 2025
+						<a href="https://stepfun-ai.github.io/Step1X-3D/">[WebPage]</a>
+						<a href="https://arxiv.org/abs/2505.07747">[Paper]</a>
+						<a href="https://github.com/stepfun-ai/Step1X-3D">[Code]</a>
+						<a href="https://huggingface.co/spaces/stepfun-ai/Step1X-3D">[Demo]</a>
+						<a href="https://huggingface.co/stepfun-ai/Step1X-3D">[Model]</a>
+						<a href="https://huggingface.co/datasets/stepfun-ai/Step1X-3D-obj-data/tree/main">[Dataset]</a>
+					</h5>
+				</article>
+
+				<article>
+					<h3>Dora: Sampling and Benchmarking for 3D Shape Variational Auto-Encoders</h3>
+					<h5>
+						Rui Chen,
+						Jianfeng Zhang,
+						Yixun Liang,
+						Guan Luo,
+						<strong>Weiyu Li</strong>,
+						Jiarui Liu,
+						Xiu Li,
+						Xiaoxiao Long,
+						Jiashi Feng,
+						Ping Tan
+					</h5>
+					<h5 class="pub-venue">
+						CVPR 2025
+						<a href="https://aruichen.github.io/Dora/">[WebPage]</a>
+						<a href="https://openaccess.thecvf.com/content/CVPR2025/html/Chen_Dora_Sampling_and_Benchmarking_for_3D_Shape_Variational_Auto-Encoders_CVPR_2025_paper.html">[Paper]</a>
+						<a href="https://github.com/Seed3D/Dora">[Code]</a>
+					</h5>
+				</article>
+
+				<article>
+					<h3>Iris3D: 3D Generation via Synchronized Diffusion Distillation</h3>
+					<h5>
+						Yixun Liang,
+						<strong>Weiyu Li</strong>,
+						Rui Chen,
+						Feipeng Tian,
+						Jiarui Liu,
+						Yuan-Chen Chen,
+						Ping Tan,
+						Xiaoxiao Long
+					</h5>
+					<h5 class="pub-venue">ACM Transactions on Graphics (TOG), 2025</h5>
+				</article>
+
+				<article>
+					<h3>Multi-View Large Reconstruction Model via Geometry-Aware Positional Encoding and Attention</h3>
+					<h5>
+						Mengfei Li,
+						Xiaoxiao Long,
+						Yixun Liang,
+						<strong>Weiyu Li</strong>,
+						Yuan Liu,
+						Peng Li,
+						Wenhan Luo,
+						Wenping Wang,
+						Yike Guo
+					</h5>
+					<h5 class="pub-venue">
+						IEEE Transactions on Visualization and Computer Graphics (TVCG), 2025
+						<a href="https://arxiv.org/abs/2406.07648">[Paper]</a>
+					</h5>
+				</article>
+
+				<h3 class="pub-year">2024</h3>
+				<article>
+					<h3>SweetDreamer: Aligning Geometric Priors in 2D Diffusion for Consistent Text-to-3D</h3>
+					<h5>
+						<strong>Weiyu Li</strong>,
+						Rui Chen,
+						Xuelin Chen,
+						Ping Tan
+					</h5>
+					<h5 class="pub-venue">
+						ICLR 2024
+						<a href="https://sweetdreamer3d.github.io">[WebPage]</a>
+						<a href="http://arxiv.org/abs/2310.02596">[Paper]</a>
+						<a href="https://github.com/wyysf-98/SweetDreamer">[Code]</a>
+					</h5>
+				</article>
+
+				<article>
+					<h3>BAGS: Building Animatable Gaussian Splatting from a Monocular Video with Diffusion Priors</h3>
+					<h5>
+						Tingyang Zhang,
+						Qingzhe Gao,
+						<strong>Weiyu Li</strong>,
+						Libin Liu,
+						Baoquan Chen
+					</h5>
+					<h5 class="pub-venue">
+						arXiv preprint, 2024
+						<a href="https://talegqz.github.io/BAGS/">[WebPage]</a>
+						<a href="https://arxiv.org/abs/2403.11427">[Paper]</a>
+					</h5>
+				</article>
+
+				<h3 class="pub-year">2023</h3>
+				<article>
+					<h3>Example-based Motion Synthesis via Generative Motion Matching</h3>
+					<h5>
+						<strong>Weiyu Li<sup>*</sup></strong>,
+						Xuelin Chen<sup>*</sup>,
+						Peizhuo Li,
+						Olga Sorkine-Hornung,
+						Baoquan Chen
+					</h5>
+					<h5 class="pub-venue">
+						ACM Transactions on Graphics (SIGGRAPH), 2023
+						<a href="https://wyysf-98.github.io/GenMM/">[WebPage]</a>
+						<a href="https://arxiv.org/pdf/2306.00378.pdf">[Paper]</a>
+						<a href="https://github.com/wyysf-98/GenMM">[Code]</a>
+					</h5>
+				</article>
+
+				<article>
+					<h3>Patch-based 3D Natural Scene Generation from a Single Example</h3>
+					<h5>
+						<strong>Weiyu Li<sup>*</sup></strong>,
+						Xuelin Chen<sup>*</sup>,
+						Jue Wang,
+						Baoquan Chen
+					</h5>
+					<h5 class="pub-venue">
+						CVPR 2023
+						<a href="https://wyysf-98.github.io/Sin3DGen/">[WebPage]</a>
+						<a href="https://arxiv.org/pdf/2304.12670.pdf">[Paper]</a>
+						<a href="https://github.com/wyysf-98/Sin3DGen">[Code]</a>
+					</h5>
+				</article>
+
+				<h3 class="pub-year">2022</h3>
+				<article>
+					<h3>MoCo-Flow: Neural Motion Consensus Flow for Dynamic Humans in Stationary Monocular Cameras</h3>
+					<h5>
+						Xuelin Chen,
+						<strong>Weiyu Li</strong>,
+						Daniel Cohen-Or,
+						Niloy J. Mitra,
+						Baoquan Chen
+					</h5>
+					<h5 class="pub-venue">
+						Computer Graphics Forum (Eurographics), 2022
+						<a href="https://wyysf-98.github.io/MoCo_Flow/">[WebPage]</a>
+						<a href="https://arxiv.org/pdf/2106.04477.pdf">[Paper]</a>
+						<a href="https://github.com/wyysf-98/MoCo_Flow">[Code]</a>
+					</h5>
+				</article>
+			</div>
+		</section>
+	</div>
+
+	<!-- Footer -->
+	<footer id="footer">
+		<div class="inner">
+			<ul class="icons">
+				<li><a href="mailto:weiyuli.cn@gmail.com" class="icon solid fa-envelope"><span
+					class="label">Email</span></a></li>
+				<li><a href="https://twitter.com/weiyuli99072112" class="icon brands fa-twitter"><span
+							class="label">Twitter</span></a></li>
+				<li><a href="https://github.com/wyysf-98" class="icon brands fa-github"><span
+							class="label">Github</span></a></li>
+				<li><a href="https://scholar.google.com/citations?hl=zh-TW&user=NvnEYmoAAAAJ" class="icon solid fa-graduation-cap"><span 
+							class="label">GoogleScholar</span></a></li>
+				<li><a href="WeiyuLi_CV.pdf" class="icon solid fa-file-contract"><span 
+					class="label">CV</span></a></li>
+				<li><a href="index.html" class="icon solid fa-home"><span 
+					class="label">Home</span></a></li>
+			</ul>
+		</div>
+	</footer>
+
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.poptrox.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
