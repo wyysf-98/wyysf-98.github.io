@@ -11,6 +11,7 @@
 	<link rel="icon" type="image/x-icon" href="assets/css/images/favicon.ico">
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/fontawesome-all.min.css" />
 	<link rel="stylesheet" href="assets/css/main.css" />
 	<style>
 		:root {
@@ -91,6 +92,9 @@
 
 		#header {
 			background: transparent;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
 			overflow: hidden;
 			z-index: 1;
 		}
@@ -105,20 +109,54 @@
 			background: transparent;
 		}
 
+		#footer .icons {
+			margin: 0 0 1em 0;
+			padding: 0;
+		}
+
+		#footer .icons li {
+			display: inline-block;
+			margin: 0;
+			padding: 0 1em 0 0;
+		}
+
+		#footer .icons li:last-child {
+			padding-right: 0;
+		}
+
 		#footer .icons a {
-			color: rgba(255, 255, 255, 0.72);
+			color: rgba(255, 255, 255, 0.8);
 		}
 
 		#footer .icons a:hover {
-			color: rgba(255, 255, 255, 0.92) !important;
+			color: rgba(255, 255, 255, 1) !important;
+		}
+
+		#footer .icons li .icon:before {
+			font-size: 1.5em;
 		}
 
 		#footer .copyright {
-			color: rgba(255, 255, 255, 0.62);
+			color: rgba(255, 255, 255, 0.8);
+			font-size: 0.6em;
+			list-style: none;
+			margin: 0;
+			padding: 0;
+			text-align: right;
 		}
 
 		#footer .copyright li {
-			border-left-color: rgba(255, 255, 255, 0.24);
+			border-left: solid 1px rgba(255, 255, 255, 0.5);
+			display: inline-block;
+			line-height: 1.5em;
+			margin-left: 0.75em;
+			padding-left: 0.75em;
+		}
+
+		#footer .copyright li:first-child {
+			border-left: 0;
+			margin-left: 0;
+			padding-left: 0;
 		}
 
 		#header h1 {
@@ -184,6 +222,23 @@
 			margin-bottom: 0.35em;
 		}
 
+		.award-badge {
+			background: rgba(255, 255, 255, 0.82);
+			border: 1px solid rgba(74, 80, 84, 0.16);
+			border-radius: 999px;
+			box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.65);
+			color: #5f666b;
+			display: inline-block;
+			font-size: 0.88em;
+			font-weight: 600;
+			letter-spacing: 0.01em;
+			line-height: 1.2;
+			margin-left: 0.45em;
+			padding: 0.18em 0.62em 0.2em;
+			vertical-align: baseline;
+			white-space: nowrap;
+		}
+
 		.pub-list h5 a {
 			background: var(--accent-soft);
 			border: 1px solid rgba(45, 124, 143, 0.13);
@@ -224,14 +279,19 @@
 					radial-gradient(circle at 52% 29%, rgba(255, 255, 255, 0.08), transparent 24%),
 					linear-gradient(rgba(22, 25, 27, 0.68), rgba(22, 25, 27, 0.76)),
 					url("images/bg.jpg");
+				display: flex;
 				background-position: center center;
 				background-repeat: no-repeat;
 				background-size: cover;
+				justify-content: space-between;
+				min-height: 100svh;
+				padding-bottom: 1.25em;
 			}
 
 			#footer {
-				background: #1b2121;
-				padding-top: 1.15em;
+				background: transparent;
+				padding-top: 0;
+				width: 100%;
 			}
 
 			body.is-touch #header {
@@ -246,13 +306,28 @@
 			}
 
 			body.is-touch #footer {
-				background: #1b2121;
+				background: transparent;
+			}
+		}
+
+		@media screen and (max-width: 736px) {
+			#header {
+				min-height: 100svh;
+				padding-bottom: 1em;
+			}
+
+			#footer .icons {
+				margin: 0 0 1em 0;
+			}
+
+			#footer .copyright {
+				font-size: 0.6em;
 			}
 		}
 	</style>
 </head>
 
-<body class="is-preload">
+<body>
 
 	<!-- Header -->
 	<header id="header">
@@ -261,6 +336,28 @@
 			<h1>Weiyu Li</h1>
 			<h2>Publications</h2>
 		</div>
+		<footer id="footer">
+			<div class="inner">
+				<ul class="icons">
+					<li><a href="mailto:weiyuli.cn@gmail.com" class="icon solid fa-envelope"><span
+						class="label">Email</span></a></li>
+					<li><a href="https://twitter.com/weiyuli99072112" class="icon brands fa-twitter"><span
+								class="label">Twitter</span></a></li>
+					<li><a href="https://github.com/wyysf-98" class="icon brands fa-github"><span
+								class="label">Github</span></a></li>
+					<li><a href="https://scholar.google.com/citations?hl=zh-TW&user=NvnEYmoAAAAJ" class="icon solid fa-graduation-cap"><span 
+								class="label">GoogleScholar</span></a></li>
+					<li><a href="WeiyuLi_CV.pdf" class="icon solid fa-file-contract"><span 
+						class="label">CV</span></a></li>
+					<li><a href="index.html" class="icon solid fa-home"><span 
+						class="label">Home</span></a></li>
+				</ul>
+				<ul class="copyright">
+					<li>&copy; Weiyu Li. All rights reserved.</li>
+					<li>Design: HTML5 UP</li>
+				</ul>
+			</div>
+		</footer>
 	</header>
 
 	<!-- Main -->
@@ -538,34 +635,6 @@
 			</div>
 		</section>
 	</div>
-
-	<!-- Footer -->
-	<footer id="footer">
-		<div class="inner">
-			<ul class="icons">
-				<li><a href="mailto:weiyuli.cn@gmail.com" class="icon solid fa-envelope"><span
-					class="label">Email</span></a></li>
-				<li><a href="https://twitter.com/weiyuli99072112" class="icon brands fa-twitter"><span
-							class="label">Twitter</span></a></li>
-				<li><a href="https://github.com/wyysf-98" class="icon brands fa-github"><span
-							class="label">Github</span></a></li>
-				<li><a href="https://scholar.google.com/citations?hl=zh-TW&user=NvnEYmoAAAAJ" class="icon solid fa-graduation-cap"><span 
-							class="label">GoogleScholar</span></a></li>
-				<li><a href="WeiyuLi_CV.pdf" class="icon solid fa-file-contract"><span 
-					class="label">CV</span></a></li>
-				<li><a href="index.html" class="icon solid fa-home"><span 
-					class="label">Home</span></a></li>
-			</ul>
-		</div>
-	</footer>
-
-	<!-- Scripts -->
-	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/jquery.poptrox.min.js"></script>
-	<script src="assets/js/browser.min.js"></script>
-	<script src="assets/js/breakpoints.min.js"></script>
-	<script src="assets/js/util.js"></script>
-	<script src="assets/js/main.js"></script>
 
 </body>
 
