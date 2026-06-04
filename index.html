@@ -229,7 +229,7 @@
 			aspect-ratio: 16 / 9;
 		}
 
-		#two .image.fit img {
+		#two .image.fit:not(.cropped-thumb) img {
 			object-fit: contain;
 		}
 
@@ -237,16 +237,16 @@
 			object-fit: cover;
 		}
 
-		#two .cropped-thumb img {
+		#two .image.fit.cropped-thumb {
+			aspect-ratio: 16 / 9;
+		}
+
+		#two .image.fit.cropped-thumb img {
 			display: block;
 			height: 100%;
 			object-fit: cover;
 			object-position: center center;
 			width: 100%;
-		}
-
-		#two .cropped-thumb {
-			aspect-ratio: 16 / 9;
 		}
 
 		#two span.image.thumb:before,
@@ -318,15 +318,55 @@
 				background-position: center center;
 				background-repeat: no-repeat;
 				background-size: cover;
-				justify-content: space-between;
-				min-height: 100svh;
-				padding-bottom: 1.25em;
+				flex-direction: column;
+				gap: 1.5em;
+				justify-content: flex-start;
+				min-height: auto;
+				padding: 2.5em 1.5em 1.5em;
 			}
 
 			#footer {
 				background: transparent;
 				padding-top: 0;
 				width: 100%;
+			}
+
+			#footer .copyright {
+				font-size: 0.52em;
+				text-align: center;
+			}
+
+			#footer .icons li {
+				padding: 0 0.75em 0 0;
+			}
+
+			#footer .icons li .icon:before {
+				font-size: 1.15em;
+			}
+
+			#header h1 {
+				font-size: 1.35em;
+			}
+
+			#header h2 {
+				font-size: 0.78em;
+			}
+
+			#header .image.avatar {
+				width: 5.25em;
+			}
+
+			#two .work-item h4 {
+				font-size: 0.9em;
+			}
+
+			#two .work-item h5 {
+				font-size: 0.74em;
+			}
+
+			#two .work-item h5 a {
+				font-size: 0.92em;
+				padding: 0.02em 0.28em;
 			}
 
 			body.is-touch #header {
@@ -347,16 +387,45 @@
 
 		@media screen and (max-width: 736px) {
 			#header {
-				min-height: 100svh;
-				padding-bottom: 1em;
+				gap: 1.25em;
+				padding: 2em 1.25em 1.25em;
+			}
+
+			#header h1 {
+				font-size: 1.15em;
+			}
+
+			#header h2 {
+				font-size: 0.72em;
+			}
+
+			#header .image.avatar {
+				width: 4.5em;
 			}
 
 			#footer .icons {
-				margin: 0 0 1em 0;
+				margin: 0 0 0.85em 0;
+			}
+
+			#footer .icons li .icon:before {
+				font-size: 1.05em;
 			}
 
 			#footer .copyright {
-				font-size: 0.6em;
+				font-size: 0.48em;
+			}
+
+			#two .work-item h4 {
+				font-size: 0.86em;
+			}
+
+			#two .work-item h5 {
+				font-size: 0.7em;
+			}
+
+			#two .work-item h5 a {
+				font-size: 0.88em;
+				padding: 0.01em 0.24em;
 			}
 		}
 	</style>

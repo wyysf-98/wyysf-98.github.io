@@ -241,6 +241,28 @@
 			text-decoration: none;
 		}
 
+		.pub-list h5 .pub-author-link {
+			background: none;
+			border: none;
+			border-radius: 0;
+			color: inherit;
+			display: inline;
+			font-size: inherit;
+			line-height: inherit;
+			margin: 0;
+			padding: 0;
+			white-space: normal;
+		}
+
+		.pub-list h5 .pub-author-link:hover {
+			background: none;
+			border: none;
+			color: inherit !important;
+			text-decoration: underline;
+			text-decoration-color: rgba(52, 56, 60, 0.28);
+			text-underline-offset: 0.12em;
+		}
+
 		.pub-venue {
 			color: var(--muted);
 		}
@@ -266,15 +288,55 @@
 				background-position: center center;
 				background-repeat: no-repeat;
 				background-size: cover;
-				justify-content: space-between;
-				min-height: 100svh;
-				padding-bottom: 1.25em;
+				flex-direction: column;
+				gap: 1.5em;
+				justify-content: flex-start;
+				min-height: auto;
+				padding: 2.5em 1.5em 1.5em;
 			}
 
 			#footer {
 				background: transparent;
 				padding-top: 0;
 				width: 100%;
+			}
+
+			#footer .copyright {
+				font-size: 0.52em;
+				text-align: center;
+			}
+
+			#footer .icons li {
+				padding: 0 0.75em 0 0;
+			}
+
+			#footer .icons li .icon:before {
+				font-size: 1.15em;
+			}
+
+			#header h1 {
+				font-size: 1.35em;
+			}
+
+			#header h2 {
+				font-size: 0.78em;
+			}
+
+			#header .image.avatar {
+				width: 5.25em;
+			}
+
+			.pub-list h3 {
+				font-size: 0.94em;
+			}
+
+			.pub-list h5 {
+				font-size: 0.8em;
+			}
+
+			.pub-list h5 a {
+				font-size: 0.92em;
+				padding: 0.02em 0.28em;
 			}
 
 			body.is-touch #header {
@@ -295,16 +357,45 @@
 
 		@media screen and (max-width: 736px) {
 			#header {
-				min-height: 100svh;
-				padding-bottom: 1em;
+				gap: 1.25em;
+				padding: 2em 1.25em 1.25em;
+			}
+
+			#header h1 {
+				font-size: 1.15em;
+			}
+
+			#header h2 {
+				font-size: 0.72em;
+			}
+
+			#header .image.avatar {
+				width: 4.5em;
 			}
 
 			#footer .icons {
-				margin: 0 0 1em 0;
+				margin: 0 0 0.85em 0;
+			}
+
+			#footer .icons li .icon:before {
+				font-size: 1.05em;
 			}
 
 			#footer .copyright {
-				font-size: 0.6em;
+				font-size: 0.48em;
+			}
+
+			.pub-list h3 {
+				font-size: 0.9em;
+			}
+
+			.pub-list h5 {
+				font-size: 0.76em;
+			}
+
+			.pub-list h5 a {
+				font-size: 0.88em;
+				padding: 0.01em 0.24em;
 			}
 		}
 	</style>
@@ -357,12 +448,12 @@
 					<h3>MeshFlow: Efficient Artistic Mesh Generation via MeshVAE and Flow-based Diffusion Transformer</h3>
 					<h5>
 						<strong>Weiyu Li</strong>,
-						Antoine Toisoul,
-						Tom Monnier,
-						Roman Shapovalov,
+						<a class="pub-author-link" href="https://www.antoinetlc.com/" target="_blank" rel="noopener noreferrer">Antoine Toisoul</a>,
+						<a class="pub-author-link" href="https://tmonnier.com/" target="_blank" rel="noopener noreferrer">Tom Monnier</a>,
+						<a class="pub-author-link" href="http://shapovalov.ro/" target="_blank" rel="noopener noreferrer">Roman Shapovalov</a>,
 						Rakesh Ranjan,
-						Ping Tan,
-						Andrea Vedaldi
+						<a class="pub-author-link" href="https://ece.hkust.edu.hk/pingtan" target="_blank" rel="noopener noreferrer">Ping Tan</a>,
+						<a class="pub-author-link" href="https://www.robots.ox.ac.uk/~vedaldi/" target="_blank" rel="noopener noreferrer">Andrea Vedaldi</a>
 					</h5>
 					<h5 class="pub-venue">
 						CVPR 2026 <strong>Highlight</strong>
@@ -375,13 +466,13 @@
 				<article>
 					<h3>SceneMaker: Open-set 3D Scene Generation with Decoupled De-occlusion and Pose Estimation Model</h3>
 					<h5>
-						Yukai Shi,
+						<a class="pub-author-link" href="https://shiyukai26.github.io/info/" target="_blank" rel="noopener noreferrer">Yukai Shi</a>,
 						<strong>Weiyu Li</strong>,
 						Zihao Wang,
-						Hongyang Li,
+						<a class="pub-author-link" href="https://lhy-hongyangli.github.io/" target="_blank" rel="noopener noreferrer">Hongyang Li</a>,
 						Xingyu Chen,
-						Ping Tan,
-						Lei Zhang
+						<a class="pub-author-link" href="https://ece.hkust.edu.hk/pingtan" target="_blank" rel="noopener noreferrer">Ping Tan</a>,
+						<a class="pub-author-link" href="https://www.leizhang.org/" target="_blank" rel="noopener noreferrer">Lei Zhang</a>
 					</h5>
 					<h5 class="pub-venue">
 						CVPR 2026
@@ -393,14 +484,14 @@
 				<article>
 					<h3>UniTEX: Universal High Fidelity Generative Texturing for 3D Shapes</h3>
 					<h5>
-						Yixun Liang,
-						Kunming Luo,
-						Xuelin Chen,
-						Rui Chen,
-						Hongyu Yan,
+						<a class="pub-author-link" href="https://yixunliang.github.io/" target="_blank" rel="noopener noreferrer">Yixun Liang</a>,
+						<a class="pub-author-link" href="https://coolbeam.github.io/" target="_blank" rel="noopener noreferrer">Kunming Luo</a>,
+						<a class="pub-author-link" href="https://xuelin-chen.github.io/" target="_blank" rel="noopener noreferrer">Xuelin Chen</a>,
+						<a class="pub-author-link" href="https://aruichen.github.io/" target="_blank" rel="noopener noreferrer">Rui Chen</a>,
+						<a class="pub-author-link" href="https://hanryyan.github.io/" target="_blank" rel="noopener noreferrer">Hongyu Yan</a>,
 						<strong>Weiyu Li</strong>,
 						Jiarui Liu,
-						Ping Tan
+						<a class="pub-author-link" href="https://ece.hkust.edu.hk/pingtan" target="_blank" rel="noopener noreferrer">Ping Tan</a>
 					</h5>
 					<h5 class="pub-venue">
 						CVPR 2026
@@ -411,14 +502,14 @@
 				<article>
 					<h3>PoseMaster: Generating 3D Characters in Arbitrary Poses from a Single Image</h3>
 					<h5>
-						Hongyu Yan,
-						Kunming Luo,
+						<a class="pub-author-link" href="https://hanryyan.github.io/" target="_blank" rel="noopener noreferrer">Hongyu Yan</a>,
+						<a class="pub-author-link" href="https://coolbeam.github.io/" target="_blank" rel="noopener noreferrer">Kunming Luo</a>,
 						<strong>Weiyu Li</strong>,
-						Yixun Liang,
+						<a class="pub-author-link" href="https://yixunliang.github.io/" target="_blank" rel="noopener noreferrer">Yixun Liang</a>,
 						Shengming Li,
-						Jingwei Huang,
+						<a class="pub-author-link" href="https://cs.stanford.edu/~jingweih/" target="_blank" rel="noopener noreferrer">Jingwei Huang</a>,
 						Chunchao Guo,
-						Ping Tan
+						<a class="pub-author-link" href="https://ece.hkust.edu.hk/pingtan" target="_blank" rel="noopener noreferrer">Ping Tan</a>
 					</h5>
 					<h5 class="pub-venue">
 						CVPR 2026
@@ -432,12 +523,12 @@
 					<h5>
 						<strong>Weiyu Li<sup>*</sup></strong>,
 						Jiarui Liu<sup>*</sup>,
-						Hongyu Yan<sup>*</sup>,
-						Rui Chen,
-						Yixun Liang,
-						Xuelin Chen,
-						Ping Tan,
-						Xiaoxiao Long
+						<a class="pub-author-link" href="https://hanryyan.github.io/" target="_blank" rel="noopener noreferrer">Hongyu Yan</a><sup>*</sup>,
+						<a class="pub-author-link" href="https://aruichen.github.io/" target="_blank" rel="noopener noreferrer">Rui Chen</a>,
+						<a class="pub-author-link" href="https://yixunliang.github.io/" target="_blank" rel="noopener noreferrer">Yixun Liang</a>,
+						<a class="pub-author-link" href="https://xuelin-chen.github.io/" target="_blank" rel="noopener noreferrer">Xuelin Chen</a>,
+						<a class="pub-author-link" href="https://ece.hkust.edu.hk/pingtan" target="_blank" rel="noopener noreferrer">Ping Tan</a>,
+						<a class="pub-author-link" href="https://www.xxlong.site/" target="_blank" rel="noopener noreferrer">Xiaoxiao Long</a>
 					</h5>
 					<h5 class="pub-venue">
 						CVPR 2025 <strong>Oral</strong>
@@ -478,16 +569,16 @@
 				<article>
 					<h3>Dora: Sampling and Benchmarking for 3D Shape Variational Auto-Encoders</h3>
 					<h5>
-						Rui Chen,
-						Jianfeng Zhang,
-						Yixun Liang,
-						Guan Luo,
+						<a class="pub-author-link" href="https://aruichen.github.io/" target="_blank" rel="noopener noreferrer">Rui Chen</a>,
+						<a class="pub-author-link" href="https://jfzhang95.github.io/" target="_blank" rel="noopener noreferrer">Jianfeng Zhang</a>,
+						<a class="pub-author-link" href="https://yixunliang.github.io/" target="_blank" rel="noopener noreferrer">Yixun Liang</a>,
+						<a class="pub-author-link" href="https://logan0601.github.io/" target="_blank" rel="noopener noreferrer">Guan Luo</a>,
 						<strong>Weiyu Li</strong>,
 						Jiarui Liu,
-						Xiu Li,
-						Xiaoxiao Long,
-						Jiashi Feng,
-						Ping Tan
+						<a class="pub-author-link" href="http://lixiulive.com/" target="_blank" rel="noopener noreferrer">Xiu Li</a>,
+						<a class="pub-author-link" href="https://www.xxlong.site/" target="_blank" rel="noopener noreferrer">Xiaoxiao Long</a>,
+						<a class="pub-author-link" href="https://sites.google.com/site/jshfeng/home" target="_blank" rel="noopener noreferrer">Jiashi Feng</a>,
+						<a class="pub-author-link" href="https://ece.hkust.edu.hk/pingtan" target="_blank" rel="noopener noreferrer">Ping Tan</a>
 					</h5>
 					<h5 class="pub-venue">
 						CVPR 2025
@@ -500,14 +591,14 @@
 				<article>
 					<h3>Iris3D: 3D Generation via Synchronized Diffusion Distillation</h3>
 					<h5>
-						Yixun Liang,
+						<a class="pub-author-link" href="https://yixunliang.github.io/" target="_blank" rel="noopener noreferrer">Yixun Liang</a>,
 						<strong>Weiyu Li</strong>,
-						Rui Chen,
+						<a class="pub-author-link" href="https://aruichen.github.io/" target="_blank" rel="noopener noreferrer">Rui Chen</a>,
 						Feipeng Tian,
 						Jiarui Liu,
 						Yuan-Chen Chen,
-						Ping Tan,
-						Xiaoxiao Long
+						<a class="pub-author-link" href="https://ece.hkust.edu.hk/pingtan" target="_blank" rel="noopener noreferrer">Ping Tan</a>,
+						<a class="pub-author-link" href="https://www.xxlong.site/" target="_blank" rel="noopener noreferrer">Xiaoxiao Long</a>
 					</h5>
 					<h5 class="pub-venue">ACM Transactions on Graphics (TOG), 2025</h5>
 				</article>
@@ -515,15 +606,15 @@
 				<article>
 					<h3>Multi-View Large Reconstruction Model via Geometry-Aware Positional Encoding and Attention</h3>
 					<h5>
-						Mengfei Li,
-						Xiaoxiao Long,
-						Yixun Liang,
+						<a class="pub-author-link" href="https://murphylmf.github.io/" target="_blank" rel="noopener noreferrer">Mengfei Li</a>,
+						<a class="pub-author-link" href="https://www.xxlong.site/" target="_blank" rel="noopener noreferrer">Xiaoxiao Long</a>,
+						<a class="pub-author-link" href="https://yixunliang.github.io/" target="_blank" rel="noopener noreferrer">Yixun Liang</a>,
 						<strong>Weiyu Li</strong>,
-						Yuan Liu,
+						<a class="pub-author-link" href="https://liuyuan-pal.github.io/" target="_blank" rel="noopener noreferrer">Yuan Liu</a>,
 						Peng Li,
-						Wenhan Luo,
-						Wenping Wang,
-						Yike Guo
+						<a class="pub-author-link" href="https://whluo.github.io/" target="_blank" rel="noopener noreferrer">Wenhan Luo</a>,
+						<a class="pub-author-link" href="https://www.cs.hku.hk/people/academic-staff/wenping" target="_blank" rel="noopener noreferrer">Wenping Wang</a>,
+						<a class="pub-author-link" href="https://hkustprovost.hkust.edu.hk/meet-provost" target="_blank" rel="noopener noreferrer">Yike Guo</a>
 					</h5>
 					<h5 class="pub-venue">
 						IEEE Transactions on Visualization and Computer Graphics (TVCG), 2025
@@ -536,9 +627,9 @@
 					<h3>SweetDreamer: Aligning Geometric Priors in 2D Diffusion for Consistent Text-to-3D</h3>
 					<h5>
 						<strong>Weiyu Li</strong>,
-						Rui Chen,
-						Xuelin Chen,
-						Ping Tan
+						<a class="pub-author-link" href="https://aruichen.github.io/" target="_blank" rel="noopener noreferrer">Rui Chen</a>,
+						<a class="pub-author-link" href="https://xuelin-chen.github.io/" target="_blank" rel="noopener noreferrer">Xuelin Chen</a>,
+						<a class="pub-author-link" href="https://ece.hkust.edu.hk/pingtan" target="_blank" rel="noopener noreferrer">Ping Tan</a>
 					</h5>
 					<h5 class="pub-venue">
 						ICLR 2024
@@ -552,10 +643,10 @@
 					<h3>BAGS: Building Animatable Gaussian Splatting from a Monocular Video with Diffusion Priors</h3>
 					<h5>
 						Tingyang Zhang,
-						Qingzhe Gao,
+						<a class="pub-author-link" href="https://talegqz.github.io/" target="_blank" rel="noopener noreferrer">Qingzhe Gao</a>,
 						<strong>Weiyu Li</strong>,
-						Libin Liu,
-						Baoquan Chen
+						<a class="pub-author-link" href="https://libliu.info/" target="_blank" rel="noopener noreferrer">Libin Liu</a>,
+						<a class="pub-author-link" href="https://cfcs.pku.edu.cn/baoquan/" target="_blank" rel="noopener noreferrer">Baoquan Chen</a>
 					</h5>
 					<h5 class="pub-venue">
 						arXiv preprint, 2024
@@ -569,10 +660,10 @@
 					<h3>Example-based Motion Synthesis via Generative Motion Matching</h3>
 					<h5>
 						<strong>Weiyu Li<sup>*</sup></strong>,
-						Xuelin Chen<sup>*</sup>,
-						Peizhuo Li,
-						Olga Sorkine-Hornung,
-						Baoquan Chen
+						<a class="pub-author-link" href="https://xuelin-chen.github.io/" target="_blank" rel="noopener noreferrer">Xuelin Chen</a><sup>*</sup>,
+						<a class="pub-author-link" href="https://peizhuoli.github.io/" target="_blank" rel="noopener noreferrer">Peizhuo Li</a>,
+						<a class="pub-author-link" href="https://igl.ethz.ch/people/sorkine/" target="_blank" rel="noopener noreferrer">Olga Sorkine-Hornung</a>,
+						<a class="pub-author-link" href="https://cfcs.pku.edu.cn/baoquan/" target="_blank" rel="noopener noreferrer">Baoquan Chen</a>
 					</h5>
 					<h5 class="pub-venue">
 						ACM Transactions on Graphics (SIGGRAPH), 2023
@@ -586,9 +677,9 @@
 					<h3>Patch-based 3D Natural Scene Generation from a Single Example</h3>
 					<h5>
 						<strong>Weiyu Li<sup>*</sup></strong>,
-						Xuelin Chen<sup>*</sup>,
-						Jue Wang,
-						Baoquan Chen
+						<a class="pub-author-link" href="https://xuelin-chen.github.io/" target="_blank" rel="noopener noreferrer">Xuelin Chen</a><sup>*</sup>,
+						<a class="pub-author-link" href="https://juewang725.github.io/" target="_blank" rel="noopener noreferrer">Jue Wang</a>,
+						<a class="pub-author-link" href="https://cfcs.pku.edu.cn/baoquan/" target="_blank" rel="noopener noreferrer">Baoquan Chen</a>
 					</h5>
 					<h5 class="pub-venue">
 						CVPR 2023
@@ -602,11 +693,11 @@
 				<article>
 					<h3>MoCo-Flow: Neural Motion Consensus Flow for Dynamic Humans in Stationary Monocular Cameras</h3>
 					<h5>
-						Xuelin Chen,
+						<a class="pub-author-link" href="https://xuelin-chen.github.io/" target="_blank" rel="noopener noreferrer">Xuelin Chen</a>,
 						<strong>Weiyu Li</strong>,
-						Daniel Cohen-Or,
-						Niloy J. Mitra,
-						Baoquan Chen
+						<a class="pub-author-link" href="https://www.cs.tau.ac.il/~dcor/" target="_blank" rel="noopener noreferrer">Daniel Cohen-Or</a>,
+						<a class="pub-author-link" href="https://geometry.cs.ucl.ac.uk/" target="_blank" rel="noopener noreferrer">Niloy J. Mitra</a>,
+						<a class="pub-author-link" href="https://cfcs.pku.edu.cn/baoquan/" target="_blank" rel="noopener noreferrer">Baoquan Chen</a>
 					</h5>
 					<h5 class="pub-venue">
 						Computer Graphics Forum (Eurographics), 2022
