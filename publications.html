@@ -107,21 +107,25 @@
 
 		#footer .inner {
 			background: transparent;
+			width: 100%;
 		}
 
 		#footer .icons {
+			align-items: center;
+			column-gap: 1em;
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: flex-end;
 			margin: 0 0 1em 0;
 			padding: 0;
+			row-gap: 0.5em;
 		}
 
 		#footer .icons li {
-			display: inline-block;
+			display: block;
+			flex: 0 0 auto;
 			margin: 0;
-			padding: 0 1em 0 0;
-		}
-
-		#footer .icons li:last-child {
-			padding-right: 0;
+			padding: 0;
 		}
 
 		#footer .icons a {
@@ -222,23 +226,26 @@
 			margin-bottom: 0.35em;
 		}
 
-		.pub-list h5 a {
-			background: var(--accent-soft);
-			border: 1px solid rgba(45, 124, 143, 0.13);
-			border-radius: 0.35em;
+		.pub-list h5.pub-venue a {
+			background: none;
+			border: none;
+			border-radius: 0;
 			color: var(--accent);
-			display: inline-block;
-			line-height: 1.35;
-			margin: 0.1em 0.18em 0.1em 0;
-			padding: 0.03em 0.34em;
+			display: inline;
+			line-height: inherit;
+			margin: 0 0.35em 0 0;
+			padding: 0;
+			text-decoration: none;
 			white-space: nowrap;
 		}
 
-		.pub-list h5 a:hover {
-			background: #eef8fa;
-			border-color: rgba(45, 124, 143, 0.28);
+		.pub-list h5.pub-venue a:hover {
+			background: none;
+			border: none;
 			color: var(--accent-dark) !important;
-			text-decoration: none;
+			text-decoration: underline;
+			text-decoration-color: rgba(31, 101, 118, 0.32);
+			text-underline-offset: 0.15em;
 		}
 
 		.pub-list h5 .pub-author-link {
@@ -272,6 +279,16 @@
 			margin-bottom: 1.6em;
 		}
 
+		.page-end-copyright {
+			display: none;
+		}
+
+		@media screen and (min-width: 1043px) and (max-width: 1120px) {
+			#footer .icons {
+				column-gap: 0.78em;
+			}
+		}
+
 		@media screen and (max-width: 1042px) {
 			body:before {
 				display: none;
@@ -288,41 +305,108 @@
 				background-repeat: no-repeat;
 				background-size: cover;
 				flex-direction: column;
-				gap: 1.5em;
+				gap: 0.65em;
 				justify-content: flex-start;
 				min-height: auto;
-				padding: 2.5em 1.5em 1.5em;
+				padding: 1.85em 1.5em 0.75em;
+			}
+
+			#header .inner {
+				align-items: center;
+				display: flex;
+				flex-direction: column;
+				gap: 0.28em;
+				text-align: center;
+				width: 100%;
+			}
+
+			#header .image.avatar {
+				margin-bottom: 0.05em;
+			}
+
+			#header .image.avatar img {
+				border: 1px solid rgba(255, 255, 255, 0.14);
+				box-shadow: 0 0.18em 0.75em rgba(0, 0, 0, 0.24);
+			}
+
+			#header h1 {
+				font-size: 1.32em;
+				letter-spacing: 0.01em;
+				line-height: 1.12;
+				margin-bottom: 0.05em;
+			}
+
+			#header h2 {
+				font-size: 0.76em;
+				line-height: 1.22;
+			}
+
+			#header h2 + h2 {
+				color: rgba(255, 255, 255, 0.62);
+				margin-top: 0.04em;
 			}
 
 			#footer {
 				background: transparent;
+				margin-top: 0;
 				padding-top: 0;
 				width: 100%;
 			}
 
-			#footer .copyright {
-				font-size: 0.52em;
+			#footer .inner {
 				text-align: center;
+				width: 100%;
+			}
+
+			#footer .icons {
+				border-top: 1px solid rgba(255, 255, 255, 0.1);
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.62em;
+				justify-content: center;
+				margin: 0;
+				padding: 0.5em 0 0;
 			}
 
 			#footer .icons li {
-				padding: 0 0.75em 0 0;
+				padding: 0;
+			}
+
+			#footer .icons a {
+				color: rgba(255, 255, 255, 0.74);
+				transition: color 0.18s ease;
+			}
+
+			#footer .copyright {
+				display: none;
+			}
+
+			.page-end-copyright {
+				color: var(--muted);
+				display: block;
+				font-size: 0.72em;
+				line-height: 1.6;
+				list-style: none;
+				margin: 0;
+				padding: 2em 1.5em 2.5em;
+				text-align: center;
+			}
+
+			.page-end-copyright li {
+				display: inline;
+			}
+
+			.page-end-copyright li + li:before {
+				content: " | ";
+				opacity: 0.55;
 			}
 
 			#footer .icons li .icon:before {
-				font-size: 1.15em;
-			}
-
-			#header h1 {
-				font-size: 1.35em;
-			}
-
-			#header h2 {
-				font-size: 0.78em;
+				font-size: 1em;
 			}
 
 			#header .image.avatar {
-				width: 5.25em;
+				width: 4.85em;
 			}
 
 			.pub-list h3 {
@@ -333,9 +417,8 @@
 				font-size: 0.8em;
 			}
 
-			.pub-list h5 a {
+			.pub-list h5.pub-venue a {
 				font-size: 0.92em;
-				padding: 0.02em 0.28em;
 			}
 
 			body.is-touch #header {
@@ -356,32 +439,38 @@
 
 		@media screen and (max-width: 736px) {
 			#header {
-				gap: 1.25em;
-				padding: 2em 1.25em 1.25em;
+				gap: 0.55em;
+				padding: 1.55em 1.25em 0.65em;
+			}
+
+			#header .inner {
+				gap: 0.22em;
 			}
 
 			#header h1 {
-				font-size: 1.15em;
+				font-size: 1.12em;
 			}
 
 			#header h2 {
-				font-size: 0.72em;
+				font-size: 0.7em;
 			}
 
 			#header .image.avatar {
-				width: 4.5em;
+				width: 4.1em;
 			}
 
 			#footer .icons {
-				margin: 0 0 0.85em 0;
+				gap: 0.54em;
+				padding-top: 0.45em;
 			}
 
 			#footer .icons li .icon:before {
-				font-size: 1.05em;
+				font-size: 0.94em;
 			}
 
-			#footer .copyright {
-				font-size: 0.48em;
+			.page-end-copyright {
+				font-size: 0.68em;
+				padding: 1.75em 1.25em 2.25em;
 			}
 
 			.pub-list h3 {
@@ -392,9 +481,8 @@
 				font-size: 0.76em;
 			}
 
-			.pub-list h5 a {
+			.pub-list h5.pub-venue a {
 				font-size: 0.88em;
-				padding: 0.01em 0.24em;
 			}
 		}
 	</style>
@@ -407,7 +495,8 @@
 		<div class="inner">
 			<a href="index.html" class="image avatar"><img src="images/avator.webp" alt="" decoding="async" fetchpriority="high" /></a>
 			<h1>Weiyu Li</h1>
-			<h2>Publications</h2>
+			<h2>Ph.D. candidate in HKUST</h2>
+			<h2>3D Generation, VR/AR/XR</h2>
 		</div>
 		<footer id="footer">
 			<div class="inner">
@@ -422,8 +511,6 @@
 								class="label">GoogleScholar</span></a></li>
 					<li><a href="WeiyuLi_CV.pdf" class="icon solid fa-file-contract"><span 
 						class="label">CV</span></a></li>
-					<li><a href="index.html" class="icon solid fa-home"><span 
-						class="label">Home</span></a></li>
 				</ul>
 				<ul class="copyright">
 					<li>&copy; Weiyu Li. All rights reserved.</li>
@@ -456,7 +543,7 @@
 					</h5>
 					<h5 class="pub-venue">
 						CVPR 2026 <strong>Highlight</strong>
-						<a href="https://mesh-flow.github.io/">[WebPage]</a>
+						<a href="https://mesh-flow.github.io/">[Page]</a>
 						<a href="https://arxiv.org/pdf/2606.04621">[arXiv]</a>
 						<a href="https://openaccess.thecvf.com/content/CVPR2026/papers/Li_MeshFlow_Efficient_Artistic_Mesh_Generation_via_MeshVAE_and_Flow-based_Diffusion_CVPR_2026_paper.pdf">[Paper]</a>
 						<a href="https://openaccess.thecvf.com/content/CVPR2026/supplemental/Li_MeshFlow_Efficient_Artistic_CVPR_2026_supplemental.pdf">[Supp]</a>
@@ -476,7 +563,7 @@
 					</h5>
 					<h5 class="pub-venue">
 						CVPR 2026
-						<a href="https://idea-research.github.io/SceneMaker/">[WebPage]</a>
+						<a href="https://idea-research.github.io/SceneMaker/">[Page]</a>
 						<a href="https://openaccess.thecvf.com/content/CVPR2026/html/Shi_SceneMaker_Open-set_3D_Scene_Generation_with_Decoupled_De-occlusion_and_Pose_CVPR_2026_paper.html">[Paper]</a>
 					</h5>
 				</article>
@@ -532,7 +619,7 @@
 					</h5>
 					<h5 class="pub-venue">
 						CVPR 2025 <strong>Oral</strong>
-						<a href="https://craftsman3d.github.io/">[WebPage]</a>
+						<a href="https://craftsman3d.github.io/">[Page]</a>
 						<a href="https://arxiv.org/abs/2405.14979">[arXiv]</a>
 						<a href="https://openaccess.thecvf.com/content/CVPR2025/papers/Li_CraftsMan3D_High-fidelity_Mesh_Generation_with_3D_Native_Diffusion_and_Interactive_CVPR_2025_paper.pdf">[Paper]</a>
 						<a href="https://github.com/wyysf-98/CraftsMan3D">[Code]</a>
@@ -556,7 +643,7 @@
 					</h5>
 					<h5 class="pub-venue">
 						Tech Report, 2025
-						<a href="https://stepfun-ai.github.io/Step1X-3D/">[WebPage]</a>
+						<a href="https://stepfun-ai.github.io/Step1X-3D/">[Page]</a>
 						<a href="https://arxiv.org/abs/2505.07747">[Paper]</a>
 						<a href="https://github.com/stepfun-ai/Step1X-3D">[Code]</a>
 						<a href="https://huggingface.co/spaces/stepfun-ai/Step1X-3D">[Demo]</a>
@@ -581,7 +668,7 @@
 					</h5>
 					<h5 class="pub-venue">
 						CVPR 2025
-						<a href="https://aruichen.github.io/Dora/">[WebPage]</a>
+						<a href="https://aruichen.github.io/Dora/">[Page]</a>
 						<a href="https://openaccess.thecvf.com/content/CVPR2025/html/Chen_Dora_Sampling_and_Benchmarking_for_3D_Shape_Variational_Auto-Encoders_CVPR_2025_paper.html">[Paper]</a>
 						<a href="https://github.com/Seed3D/Dora">[Code]</a>
 					</h5>
@@ -632,7 +719,7 @@
 					</h5>
 					<h5 class="pub-venue">
 						ICLR 2024
-						<a href="https://sweetdreamer3d.github.io">[WebPage]</a>
+						<a href="https://sweetdreamer3d.github.io">[Page]</a>
 						<a href="http://arxiv.org/abs/2310.02596">[Paper]</a>
 						<a href="https://github.com/wyysf-98/SweetDreamer">[Code]</a>
 					</h5>
@@ -649,7 +736,7 @@
 					</h5>
 					<h5 class="pub-venue">
 						arXiv preprint, 2024
-						<a href="https://talegqz.github.io/BAGS/">[WebPage]</a>
+						<a href="https://talegqz.github.io/BAGS/">[Page]</a>
 						<a href="https://arxiv.org/abs/2403.11427">[Paper]</a>
 					</h5>
 				</article>
@@ -666,7 +753,7 @@
 					</h5>
 					<h5 class="pub-venue">
 						ACM Transactions on Graphics (SIGGRAPH), 2023
-						<a href="https://wyysf-98.github.io/GenMM/">[WebPage]</a>
+						<a href="https://wyysf-98.github.io/GenMM/">[Page]</a>
 						<a href="https://arxiv.org/pdf/2306.00378.pdf">[Paper]</a>
 						<a href="https://github.com/wyysf-98/GenMM">[Code]</a>
 					</h5>
@@ -677,12 +764,12 @@
 					<h5>
 						<strong>Weiyu Li<sup>*</sup></strong>,
 						<a class="pub-author-link" href="https://xuelin-chen.github.io/" target="_blank" rel="noopener noreferrer">Xuelin Chen</a><sup>*</sup>,
-						<a class="pub-author-link" href="https://juewang725.github.io/" target="_blank" rel="noopener noreferrer">Jue Wang</a>,
+						<a class="pub-author-link" href="https://scholar.google.com/citations?user=Bt4uDWMAAAAJ" target="_blank" rel="noopener noreferrer">Jue Wang</a>,
 						<a class="pub-author-link" href="https://cfcs.pku.edu.cn/baoquan/" target="_blank" rel="noopener noreferrer">Baoquan Chen</a>
 					</h5>
 					<h5 class="pub-venue">
 						CVPR 2023
-						<a href="https://wyysf-98.github.io/Sin3DGen/">[WebPage]</a>
+						<a href="https://wyysf-98.github.io/Sin3DGen/">[Page]</a>
 						<a href="https://arxiv.org/pdf/2304.12670.pdf">[Paper]</a>
 						<a href="https://github.com/wyysf-98/Sin3DGen">[Code]</a>
 					</h5>
@@ -700,13 +787,18 @@
 					</h5>
 					<h5 class="pub-venue">
 						Computer Graphics Forum (Eurographics), 2022
-						<a href="https://wyysf-98.github.io/MoCo_Flow/">[WebPage]</a>
+						<a href="https://wyysf-98.github.io/MoCo_Flow/">[Page]</a>
 						<a href="https://arxiv.org/pdf/2106.04477.pdf">[Paper]</a>
 						<a href="https://github.com/wyysf-98/MoCo_Flow">[Code]</a>
 					</h5>
 				</article>
 			</div>
 		</section>
+
+		<ul class="page-end-copyright">
+			<li>&copy; Weiyu Li. All rights reserved.</li>
+			<li>Design: HTML5 UP</li>
+		</ul>
 	</div>
 
 </body>
